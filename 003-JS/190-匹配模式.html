@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>190-匹配模式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ='12345';
+	var reg = /\d{2,4}/g//贪婪模式
+	var reg1 = /\d{2,4}?/g//非贪婪模式,在量词后加?
+	var reg1 = /\d{2,4}?/g//非贪婪模式,即在量词后面加?
+	console.log("贪婪模式",str.replace(reg,'*'))
+	console.log("非贪婪模式",str.replace(reg1,'*'))
+</script>
+</html>

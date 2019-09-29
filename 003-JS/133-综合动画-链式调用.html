@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>133-综合动画-链式调用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 400px;
+			/*height: 600px;*/
+			margin:200px auto;
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			background-color: #069;
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 100px;
+			opacity: 0.2;
+		}
+		#box3{
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="box1">变宽</div>
+		<div id="box2">变高</div>
+		<div id="box3">边红</div>
+	</div>
+</body>
+<script>
+	// isLinear 表示动画是匀速还是减速执行(默认是匀速,true是匀速,false是减速)
+		// fnEnd 表示结束时的回调函数
+	function animate1(obj,attr,target,islinear,fnEnd){
+		if(typeof islinear == undefined){
+			islinear=true;//让动画默认就是匀速执行
+		}
+		clearInterval(obj.timer);
+		var iSpeed=0;		
+		obj.timer=setInterval(function(){
+			var isStop=false;
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr == 'opacity'){
+				current=Math.round(current*100);
+			}
+			if(islinear){//执行匀速动画
+				// 匀速动画速度
+				if(current <target){
+					iSpeed=10;
+				}else{
+					iSpeed=-10;
+				}
+				// 匀速动画结束条件
+				if(Math.abs(target-current) < Math.abs(iSpeed)){
+					if(attr =='opacity'){//把匀速动画的结果直接调到目标值(只有匀速才有
+						obj.style[attr] = target;
+					}else{
+						obj.style[attr] = target+'px';
+					}
+					isStop=true;//通过此变量决定是否停止动画								
+				}					
+			}else{//执行减速动画
+				// 减速动画速度
+				iSpeed=(target-current)/10;
+				if(iSpeed >0){
+					iSpeed=Math.ceil(iSpeed);
+				}else{
+					iSpeed=Math.floor(iSpeed);
+				}
+
+				// 减速动画结束条件
+				if(!iSpeed){
+					isStop=true;//通过此变量决定是否停止动画
+				}
+
+				if(isStop){
+					clearInterval(obj.timer);
+					// if(fnEnd){
+					// 	fnEnd()
+					// }
+					// if(typeof fnEnd=='function'){
+					// 	fnEnd();
+					// }
+					typeof fnEnd=='function' && fnEnd();//如果有传入函数的话，执行否则不执行,逻辑与,一假则假,只有前面的条件是真的时候才会调用后面的函数,此语句只是用来决定让函数当做参数在定时器关闭后回调执行函数;
+				}else{
+					if(attr == 'opacity'){
+						obj.style[attr]=(current+iSpeed)/100;
+					}else{
+						obj.style[attr]=current+iSpeed+'px';
+					}
+				}	
+			}console.log(iSpeed)			
+		},30)
+	}
+	var oDiv1 =document.getElementById('box1'); 
+	var oDiv2 =document.getElementById('box2'); 
+	var oDiv3 =document.getElementById('box3'); 
+	var timer=0;
+	// console.log(oDiv1)
+	// console.log(oDiv2)
+	oDiv1.onmouseover=function(){
+		animate1(oDiv1,'width',400,false,function(){
+			animate1(oDiv1,'height',400,false,function(){
+				animate1(oDiv1,'opacity',100,false,100);
+			})
+		});
+	}
+	oDiv1.onmouseout=function(){
+		animate1(oDiv1,'opacity',20,false,function(){
+			animate1(oDiv1,'height',100,false,function(){
+				animate1(oDiv1,'width',100,false,100);
+			})
+		});
+	}
+	oDiv2.onmouseover=function(){
+		animate1(oDiv2,'height',400);
+	}
+	oDiv3.onmouseover=function(){
+		animate1(oDiv3,'opacity',100);
+	}
+</script>
+</html>

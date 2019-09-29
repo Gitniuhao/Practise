@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">获取数据-jsonp</button>
+</body>
+<script>
+	function handleCallBack(obj){
+		console.log(obj);
+	}
+</script>
+	<script>
+		var oBtn = document.getElementById('btn');
+		var oTxt = document.getElementById('txt');
+		oBtn.onclick = function(){
+			var script = document.createElement('script');
+			 // script.src = "http://127.0.0.1:3001/getData?callback=handleCallBack";
+			script.src = 'https://suggest.taobao.com/sug?code=utf-8&q=xcv&_ksTS=1568634959519_604&callback=handleCallBack&k=1&area=c2c&bucketid=3';
+			document.body.appendChild(script);
+		}
+		oTxt.oninput = function(){
+			var script = document.createElement('script');
+			script.src = 'https://suggest.taobao.com/sug?code=utf-8&q='+oTxt.value+'&_ksTS=1568634959519_604&callback=handleCallBack&k=1&area=c2c&bucketid=3';
+			document.body.appendChild(script);
+			
+		}
+	</script>
+</html>

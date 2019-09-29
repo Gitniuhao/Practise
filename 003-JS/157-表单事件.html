@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>157-表单事件.html</title>
+</head>
+<body>
+	<form action="https://www.mi.com" id="form1">
+		<input type="text" id="txt">
+		<input type="submit" id="sub" value="提交">
+		<input type="reset" id="res" value="重置">
+		<div id="box"></div>
+	</form>
+</body>
+<script>
+	var oTxt =document.getElementById('txt');
+	var oBox=document.getElementById('box');
+	var oForm=document.getElementById('form1')
+	var len =0;
+	oTxt.onfocus=function(){
+		console.log('onfocus....')
+	}
+	oTxt.onblur=function(){
+		len =oTxt.value.length;
+		// console.log(len);
+		console.log('onblur....');
+		 if(len <3 || len >8 ){
+		 	oBox.innerHTML='密码格式错误'
+		 	oBox.style.color='red';
+		 }else{
+		 	oBox.innerHTML='密码格式正确'
+		 	oBox.style.color='green';
+		 }
+	}
+	oTxt.oninput=function(){
+		len =oTxt.value.length;
+		// console.log(len);
+		console.log('oninput....');
+		 if(len <3 || len >8 ){
+		 	oBox.innerHTML='密码格式错误'
+		 	oBox.style.color='red';
+		 }else{
+		 	oBox.innerHTML='密码格式正确'
+		 	oBox.style.color='green';
+		 }
+	}
+	oTxt.onChange=function(){
+		console.log('onChange...')
+	}
+	oForm.onsubit=function(){
+		console.log("onsubit....")
+	}
+	oForm.onreset=function(){
+		console.log("onreset....")
+	}
+</script>
+</html>

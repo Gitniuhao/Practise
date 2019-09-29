@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-百度新闻版块案列.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.news{
+			width: 300px;
+			height: 500px;					
+			margin: 200px auto;
+		}
+		.news-title{
+			border-top: 2px solid #ececec;				
+			border-bottom: 1px solid #ececec;
+			margin-top: -4px;
+			}
+		.news-title h3{
+			width: 90px;
+			border-top: 3px solid #069;
+			font-size: 20px;
+			color: 	#069;
+			margin-top: -2px;		
+		}
+		.news-title h3 p{
+			font-size: 12px;
+			color: #999;
+		}					
+		.item{
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 30px;
+			line-height: 30px;
+			border-bottom: 2px dotted #ececec; 
+		}
+		.item a{
+			text-decoration: none;
+			color: #222;
+			font-size: 12px;
+		}
+		
+		}.item a:hover{
+			color:#900;
+			text-decoration: underline;
+		}
+		.item:before{
+			width: 3px;
+			height: 3px;
+			content: "";			
+			background-color:#069; 
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 2px;
+		}
+		/*li{
+			list-style:square inside;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="news">
+	<div class="news-title">	
+		<h3>型男时尚			
+		<p >MEN FASHION</p>
+		</h3>	
+	</div>		
+		<ul class="news-list"> 
+			<li class="item">
+			<a href="#">精致男士赵立新《你好！生活家》细数小确幸</a>
+			</li>	
+			<li class="item">
+			<a href="#">叫粉丝起床？白叔太会宠粉了吧！</a>
+			</li>		
+	    	<li class="item">
+	    	<a href="#">妮维雅男士携代言人白宇，一起唤醒你的肌肤小</a>
+	    	</li>	    
+			<li class="item">
+			<a href="#">男士必用利器：智能手机鼻毛修剪器</a>
+			</li>			
+			<li class="item">
+			<a href="#">为啥逃犯喜欢在张学友演唱会上放飞自我？</a>
+			</li>			
+			<li class="item">
+			<a href="#">男士必用利器 日本网店推智能手机鼻毛修剪器</a>
+			</li>
+			<li class="item">
+			<a href="#">百年人寿康慧宝旗舰版终于上市了！</a>
+			</li>
+		</ul>		
+	</div>
+</body>
+</html>

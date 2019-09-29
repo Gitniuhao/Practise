@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>084-过渡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*transition-property: width,height;
+			transition-duration: 1s,2s;
+			ransition-delay: 1s;
+			transition-timing-function: ease-out;*/
+			/*transition: width 2s linear 1s ,height 2s linear 1s;*/
+			transition: all 1s linear 1s;
+		}
+		div:hover{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

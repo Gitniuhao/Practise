@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-margin值重叠.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1{			
+			overflow: hidden;
+		}
+		.father2{
+			overflow: hidden;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: #ff0;
+			margin-bottom: 100px;
+		}
+		.box2{
+			margin-top: 200px;
+			width: 200px;
+			height: 200px;
+			background-color:#00f;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1">
+	<div class="box1"></div>
+	</div>
+	<div class="father2">
+	<div class="box2"></div>
+	</div>
+</body>
+</html>

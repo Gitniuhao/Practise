@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>096-动画的基本使用2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			animation: sport;
+			animation-duration: 1s;
+		}
+		@keyframes sport{
+			from{
+				width: 200px;
+			}
+			to{
+				width: 400px;
+			}
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			margin-top: 20px;
+			animation: sporte;
+			animation-duration: 1s;
+			animation-delay: 1s;
+			animation-timing-function: linear;
+			animation-iteration-count:4;
+			animation-direction: alternate;
+		}
+		@keyframes sporte{
+			from{
+				width: 200px;
+			}
+			to{
+				width: 400px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

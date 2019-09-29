@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100-动画显示状态.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 400px;
+			height: 400px;
+			background-color: orange;
+			margin: 100px auto;
+			animation:sport 3s linear 1s infinite;
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode: forwards;*/
+			animation-fill-mode: both;
+		}
+		@keyframes sport{
+			0%{
+				transform: rotate(10deg);
+			}
+			25%{
+				transform: rotate(45deg);
+			}
+			50%{
+				transform: rotate(90deg);
+			}
+			75%{
+				transform: rotate(125deg);
+			}
+			100%{
+				transform: rotate(150deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

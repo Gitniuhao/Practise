@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-阻止默认行为.html</title>
+</head>
+<body>
+	<a href="http://www.mi.com">小米</a>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+	   $('a').on('click',function(ev){
+	   	  alert('aaaa');
+	   	  // return false;
+	   	  ev.preventDefault();
+	   })
+	});
+</script>
+</html>

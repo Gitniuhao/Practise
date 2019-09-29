@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>070-数组排序-比较函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr =[5,2,8,7,20,15];
+	console.log(arr);
+	var arr1 = arr.sort(function(n1,n2){
+		// if(n1>n2){
+		// 	return 1;
+		// 	// 返回正值
+		// }else if(n1<n2){
+		// 	return -1;
+		// 	// 返回负值;
+		// }else{
+		// 	return 0;
+		// }
+		// return n1-n2;//表示正序排序
+		return n2-n1;//表示倒叙排序
+	})
+	console.log(arr)
+	console.log(arr1)
+</script>
+</html>

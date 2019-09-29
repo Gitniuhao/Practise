@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-操作尺寸.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			border: 10px solid #000;
+			background-color: #069;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			border: 20px solid #000;
+			background-color: #099;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">div1</div>
+	<div class="box2">div2</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+	   // console.log($('div').width())
+	   // console.log($('div').width(300))
+	   // console.log($('div').height())
+	   // console.log($('div').height(300))
+	   //设置或获取元素的宽高,包含内边距
+	   // console.log($('div').innerWidth())
+	   // console.log($('div').innerHeight())
+	   // console.log($('div').innerHeight(300))
+	   // console.log($('div').innerWidth(300))
+	   //设置或获取元素的宽高,包含边框和内边距
+	   console.log($('div').outerWidth())
+	   console.log($('div').outerHeight())
+	    console.log($('div').outerWidth(300))
+	   console.log($('div').outerHeight(300))
+	});
+</script>
+</html>

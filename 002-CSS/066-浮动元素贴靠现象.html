@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>066-浮动元素贴靠现象.html</title>
+	<style>
+		.father{
+			width: 600px;
+			height: 900px;
+			border: 1px solid #000;
+			margin: 0 auto;
+		}
+		.son1{
+			float: left;
+			width: 200px;
+			height: 300px;
+			background-color: #990;
+		}
+		.son2{
+			float: left;
+			width: 200px;
+			height: 200px;
+			background-color: #900;
+		}
+		.son3{
+			float: left;
+			/*width: 200px;
+			width: 300px;*/
+			width: 500px;
+			height: 100px;
+			background-color: #069;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+	<div class="son1"></div>
+	<div class="son2"></div>
+	<div class="son3"></div>
+	</div>
+</body>
+</html>

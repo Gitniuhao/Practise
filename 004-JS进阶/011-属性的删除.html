@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-属性的删除.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log(this.name);
+	};
+	Person.prototype.sayAge = function(){
+		console.log(this.age)
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18)
+	console.log('p1',p1)
+	delete p1.name;
+	console.log('p1',p1)
+	console.log('delete p1.name;',delete p1.name)
+	console.log('delete p1.test;',delete p1.test)\
+	//如果删除了原型上的属性，所有实例都访问不到该属性
+	console.log(p1.name)
+</script>
+</html>

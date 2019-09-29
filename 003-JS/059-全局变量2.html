@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>059-全局变量2.html</title>
+	<script>
+		console.log('nan',a)
+		var a = 10;
+		function fn1(){
+			// var a;变量声明的提升
+			console.log('fn1',a) //undefined
+			var a = 20;
+			function fn2(){
+				console.log('fn2',a)
+			}
+			fn2()
+		}
+		console.log('goto',a)
+		fn1()
+		console.log('go',a)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

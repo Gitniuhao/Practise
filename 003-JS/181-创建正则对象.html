@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>181-创建正则对象.html</title>
+</head>
+	
+</body>
+<script>
+	var str ='abc abd abe abf abj'
+	var reg1 =new RegExp('a','g');
+	var reg2 =/a/g;
+  	console.log(str.replace(reg1,'*-*'));
+  	console.log(str.replace(reg2,'^-^'));	
+</script>
+</html>

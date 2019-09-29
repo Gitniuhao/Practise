@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>185-原子筛选-区间.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ='skdjfnasjln.fjl2313212sdfsdfjshnfjsd545ffasnhjfn6565sdfskfjio';
+	var str2 = '你好呦and我是你哥'
+	var reg = /a|b|c|d|e/g;
+	var reg1 = /[a-z]/;
+	var reg2 = /[a-z]/g;
+	var reg3 = /[0-9]/g;
+	var reg4 = /[a|b|c|d|e]/g;
+	var reg5 = /[abcde]/g;
+	var reg6 = /[a-z0-9]/g;
+	var reg7 = /[\u4e00-\u9fa5]/g;
+	console.log(str.replace(reg,'*'))
+	console.log(str.replace(reg1,'*'))
+	console.log(str.replace(reg2,'*'))
+	console.log(str.replace(reg3,'*'))
+	console.log(str.replace(reg4,'*'))
+	console.log(str.replace(reg5,'*'))
+	console.log(str.replace(reg6,'*'))
+	console.log(str2.replace(reg7,'*'))
+	function getLength(str){
+		return str.replace(/[\u4e00-\u9fa5]/g,'cc').length;
+	}
+	console.log(getLength(str2))
+</script>
+</html>

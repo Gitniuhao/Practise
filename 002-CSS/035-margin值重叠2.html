@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-margin值重叠2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			background-color: orange;
+			overflow: hidden;
+			/*border: 1px solid #000;
+			padding: 1px;*/
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin-top: 100px;
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>063-定位流布局案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		li{
+			list-style:none;
+		}
+		.clearfix:after{
+			content:"";
+			clear: both;
+			display: block;
+			height: 0;
+			visibility: hidden;
+		}
+		.clearfix{
+			*zoom: 1;
+		}
+		.contianer{
+			width: 1500px;
+			height: 1200px;
+			margin:0 auto;
+		}
+		header{	
+			position: relative;		
+			width: 100%;
+			height: 120px;
+			/*background-color: gray;*/
+			/*border: 1px solid #000;*/
+		}
+		header .list{
+			position: fixed;
+			/*left: 50%;*/
+			width: 1000px;
+			height: 40px;
+			background-color: gray;
+			margin:20px  190px;
+			z-index: 111;
+		}
+		header li{
+			float: left;
+			width: 20%;
+			height: 100%;
+			list-style: none;
+			font-style: bold;
+			line-height: 40px;
+			text-align: center;
+		}
+
+		header li:nth-child(3){
+			position: relative;
+			background-color: red;
+			width: 200px;								 
+		}
+		header  img{			
+			position: absolute;
+			top:-19px;
+			left: 79px;		
+		}
+		section{
+			width: 100%;
+			height: 500px;
+		}
+		section .left-area{
+			position: fixed;
+			left: 0;
+			width: 100px;
+			height: 200px;
+			background-color: red;
+			margin-top: 150px;
+		}
+		section .center-area{
+			position: relative;
+			float: left;
+			margin-left: 180px;
+			width: 1000px;
+			height: 500px;
+			border: 1px solid #000;
+		}
+		section img{
+			width: 100%;
+			height: 100%;
+		}
+		.btns{
+			position: absolute;
+			top: 50%;
+			margin-top: -40px;
+			width: 50px;
+			height: 80px;
+			background-color: rgb(0,0,0,0.5);
+			font-size: 30px;
+			color: white;
+		}
+		.btns:hover{
+			background-color: rgb(0,0,0,0.8);
+			cursor: pointer;
+		}
+		section .right-btn{
+			right: 0;
+		}
+		section ul{
+			position: absolute;
+			right: 40px;
+			bottom:40px;			
+		}
+		section li{
+			float: left;
+			width: 40px;
+			height: 40px;
+			background-color: #bbb;
+			text-align: center;
+			line-height: 40px;
+			margin-left: 5px;
+			border-radius: 50%;
+		}
+		section .right-area{
+			position: fixed;
+			right: 0px;
+			width: 100px;
+			height: 200px;
+			background-color: red;
+			margin-top: 150px;
+		}
+		footer{
+			width: 100%;
+			height: 700px;
+		}
+		footer .bottom-center-area{
+			float:left;
+			width: 1000px;
+			height: 90%;
+			background-color: #00f;
+			margin-left:176px;
+			margin-top: 80px;
+		}
+		footer .bottom-right-area{
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			text-align:center;
+			line-height:100px; 
+		}
+		footer a{
+			text-decoration: none;
+			font-size:22px; 
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="contianer">
+		<header class="clearfix">
+			<nav>
+				<ul class="list">
+					<li>天猫会员</li>
+					<li>品牌街</li>
+					<li>电器城
+					<img src="./img/tmall.png" alt="">
+					</li>
+					<li>营业厅</li>
+					<li>魅力惠</li>
+				</ul>				
+			</nav>			
+		</header>
+		<section >
+			<div class="left-area"></div>
+			<div class="center-area">
+				<img src="./img/ad1.jpg" alt="">
+				<button class="left-btn btns">&lt;</button>
+				<button class="right-btn btns">&gt;</button>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+			<div class="right-area"></div>
+		</section>
+		<footer>
+			<div class="bottom-right-area">
+				<a href="#">返回顶部</a>
+			</div>
+			<div class="bottom-center-area">
+				我是内容
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

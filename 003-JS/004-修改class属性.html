@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-修改class属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 200px auto;
+		}
+		.box{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="点我噻！" onclick="document.getElementById('box'
+	).className='box'">
+	<div id="box"></div>
+</body>
+</html>
+<!-- js一般修改属性时，属性在html中怎么写就怎么写，但是class是例外，在JS中要写成className='类的名称' -->

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062-var的使用.html</title>
+	<script>
+		var a =1;
+		function fn1(){
+			console.log(a)
+		}
+		function fn2(){
+			// 'use strict'
+			a =2;
+			// 定义变量时,不使用var声明变量会将变量添加到全局作用域中;
+			fn1()
+		}
+		fn2()
+		console.log('globa',a)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

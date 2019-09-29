@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>094-旋转菜单案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}		
+		.container{
+			width: 380px;
+			height: 700px;
+			margin: 100px auto;			
+		}
+		.first{
+			width: 380px;
+			height: 40px;
+			background-color: red;
+			text-align:center;	
+			line-height:40px;
+		}
+		 .first li{
+			float: 	left;	
+			width: 100px;
+			height: 40px;
+			margin-left:20px;
+			background-color:yellow;
+		}	
+		 .container .second li{
+			width: 100px;
+			height: 40px;	
+			background-color: pink;
+			margin-left: 0px;
+			opacity: 0;
+			transform:rotateY(180deg);
+			transition: all 4s;
+		}
+		.first li:hover{
+			cursor:pointer;
+		}
+		.first li>p:hover~.second li{
+			opacity: 1;
+			transform: rotateX(0deg);
+			
+		}		
+		.first li>p:hover~.second li:nth-child(1){
+			 transition-delay: 0ms;
+		}
+		.first li>p:hover~.second li:nth-child(2){
+			 transition-delay: 200ms;
+		}
+		.first li>p:hover~.second li:nth-child(3){
+			 transition-delay: 400ms;
+		}
+		.first li>p:hover~.second li:nth-child(4){
+			 transition-delay: 600ms;
+		}
+		.first li>p:hover~.second li:nth-child(5){
+			 transition-delay: 800ms;
+		}
+		.second li:nth-child(1){
+			transition-delay: 800ms;
+		}
+		.second li:nth-child(2){
+			 transition-delay: 600ms;
+		}
+		.second li:nth-child(3){
+			 transition-delay: 400ms;
+		}
+		.second li:nth-child(4){
+			 transition-delay: 200ms;
+		}
+		.second li:nth-child(5){
+			 transition-delay: 0ms;
+		}
+		section{			
+			height: 550px;
+			background-color: purple;
+		}		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="first">
+			<li>
+				<p>导航条1</p>	
+				<ul class="second">
+					<li>子菜单1</li>
+					<li>子菜单2</li>
+					<li>子菜单3</li>
+					<li>子菜单4</li>					
+					<li>子菜单5</li>
+				</ul>					
+			</li>
+			<li>
+				<p>导航2</p>
+				<ul class="second">
+					<li>子菜单1</li>
+					<li>子菜单2</li>
+					<li>子菜单3</li>
+					<li>子菜单4</li>					
+					<li>子菜单5</li>
+				</ul>
+			</li>
+			<li>
+				<p>导航3</p>
+				<ul class="second">
+					<li>子菜单1</li>
+					<li>子菜单2</li>
+					<li>子菜单3</li>
+					<li>子菜单4</li>					
+					<li>子菜单5</li>
+				</ul>
+			</li>
+		</ul>
+	
+	<section>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</section>
+	</div>
+</body>
+</html>

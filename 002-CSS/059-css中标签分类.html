@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>059-css中标签分类.html</title>
+	<style>
+		.box{
+			border: 1px solid #000;
+			width: 100px;
+			height: 100px;
+			padding-left: 50px;
+			padding-top: 50px;
+			margin-left: 50px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是块状元素
+	</div>
+	<p class="box">俺也是块状元素
+	</p>
+	<span class="box">俺是行内元素
+	</span>
+	<img class="box" src="./img/2.jpg" alt="">
+</body>
+</html>
+<!-- 块状元素 block：div p header atical nav..
+行内元素 inline：span a....
+行内块状元素 inline-block：input textarea img..
+只有块状元素才能独占一行；
+也只有块状元素的默认宽是父元素的宽；
+行内元素不能设置宽高，也不能设置垂直内外边距。 -->

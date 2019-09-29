@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-函数节流.html</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function throttle(fn,delay){
+		//上一次执行的时间
+		var lastTime = Date.now();
+		return function(){
+			//这一次执行的时间
+			var nowtime = Date.now();
+			//只有只一次执行的时间超过规定的延迟时间,才能执行函数调用
+			if((nowtime - lastTime) > delay){
+				fn();
+				//让每一次执行的时间等于下一次执行的时间,用于和下下次执行的时间做比较
+				lastTime = nowtime;
+		}
+	}
+}
+	var i =1;
+	window.onscroll = throttle(function(){
+		i++;
+		console.log(i)
+	},500)
+</script>
+</html>

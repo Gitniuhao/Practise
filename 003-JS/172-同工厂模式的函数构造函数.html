@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>172-同工厂模式的函数构造函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createpreson(name,age){
+		var obj =new Object();
+		obj.name = name;
+		obj.age = age;
+		obj.sayName =function(){
+			console.log('My Name is '+this.name);
+		}
+		obj.sayAge = function(){
+			console.log('I am '+this.age +" years old");
+		}
+		return obj;
+	}
+	var preson1 = createpreson('xiaohuaer',20)
+	console.log(preson1)
+	preson1.sayName();
+	preson1.sayAge();
+	var preson2 = createpreson('niuhao',30)
+	console.log(preson2)
+	preson2.sayName();
+	preson2.sayAge();
+</script>
+</html>

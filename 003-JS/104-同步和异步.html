@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>104-同步和异步.html</title>
+</head>
+<body>
+	<input type="button" id="btn" value="提交">
+</body>
+<script>
+	var oBtn =document.getElementById('btn');
+	var a=0;
+	oBtn.onclick =function(){
+		a++;
+		console.log(a);
+	}
+	setTimeout(function(){
+		console.log(a)
+	},3000)
+	a++;
+</script>
+</html>

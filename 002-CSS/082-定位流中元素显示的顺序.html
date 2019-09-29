@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>082-定位流中元素显示的顺序.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			z-index: 333;
+		}
+		.box2{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			z-index: 222;
+		}
+		.box3{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 300px;
+			background-color: blue;
+			z-index:111;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>

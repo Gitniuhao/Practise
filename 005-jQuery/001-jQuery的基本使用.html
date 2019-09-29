@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-jQuery的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<!-- <script src="js/jquery-3.4.1.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>//兼容处理,确保jQuery的进入,如线上没有引入,就引如本地资源
+	window.jQuery || document.write('<script src="js/jquery-3.4.1.js"><\/script>')
+</script>
+<script>
+	//jquery可以用$代替,且直接添加到window上面
+	// console.log($);
+	// console.log(jQuery);
+	// console.log(window.jQuery);
+	//第一种使用方式:
+	//当页面DOM结构加载完毕后执行回调函数,可以执行多次
+	// jQuery(document).ready(function(){
+	// 	console.log('hai..')
+	// })
+	// jQuery(document).ready(function(){
+	// 	console.log('hai.....')
+	// })
+	//当页面全部加载完毕后执行函数,只能执行一次,后面的会把前面的覆盖掉
+	// window.onload = function(){
+	// 	console.log('hello..');
+	// }
+	// window.onload = function(){
+	// 	console.log('hello.....');
+	// }
+	//第二种使用方式:
+	// $(document).ready(function(){
+ // 		console.log('hai..')
+	// })
+	// $(document).ready(function(){
+ // 		console.log('hai.....')
+	// })
+	// 第三种使用方式:
+	$(function(){
+ 		console.log('hai..')
+	})
+	$(function(){
+ 		console.log('hai.....')
+	})
+</script>
+</html>

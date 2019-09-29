@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-删除父元素案例.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1<a href="javascipt:;">删除</a></li>
+		<li>2<a href="javascipt:;">删除</a></li>
+		<li>3<a href="javascipt:;">删除</a></li>
+		<li>4<a href="javascipt:;">删除</a></li>
+		<li>5<a href="javascipt:;">删除</a></li>
+		<li>6<a href="javascipt:;">删除</a></li>
+		<li>7<a href="javascipt:;">删除</a></li>
+		<li>8<a href="javascipt:;">删除</a></li>
+		<li>9<a href="javascipt:;">删除</a></li>
+		<li>10<a href="javascipt:;">删除</a></li>
+	</ul>
+</body>
+<script>
+	var aA=document. getElementsByTagName('a')
+	var oUl =document.getElementById('ul1')
+	for(i=0;i<aA.length;i++){
+		aA[i].onclick=function(){
+			var aLi=this.parentNode;
+			// oLi.style.display='none';
+			oUl.removeChild(aLi)
+		}
+	}
+</script>
+</html>

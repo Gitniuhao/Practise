@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-背景颜色开始显示的区域.html</title>
+	<style>
+	div{
+		width: 600px;
+		height: 600px;
+		background-color: orange;
+		border: 50px dotted #000;
+		margin: 20px auto;
+		/*background-image: url(./img/2.jpg);
+		background-repeat: no-repeat;*/
+		padding: 50px;
+		}
+		div:nth-child(1){
+			background-clip:padding-box; 
+		}
+		div:nth-child(2){
+			background-clip:content-box; 
+		}
+		div:nth-child(3){
+			background-clip:border-box; 
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

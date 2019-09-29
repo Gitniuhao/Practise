@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>064-浮动流的特点.html</title>
+	<style>
+		.father{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		.son1,.box1{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background-color: #069;
+			padding: 50px;
+			margin: 20px;
+		}
+		.son2,.box2{
+			float: right;
+			width: 100px;
+			height: 100px;
+			background-color: #900;
+			padding: 50px;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<span class="son1">俺是span</span>
+		<span class="son2">俺也是span</span>		
+	</div>
+	<div class="father">
+		<div class="box1">俺是div</div>
+		<div class="box2">俺也是div</div>
+	</div>
+</body>
+</html>

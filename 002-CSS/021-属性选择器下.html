@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-属性选择器下.html</title>
+	<style>
+		/*[title |=kuazhu]{
+			color: red;
+		}*/
+		/*[title ^=kuazhu]{
+		color: red;
+		}*/
+		/*[title $=com]{
+			color: red;
+		}*/
+		/*[title ~=com]{
+			color: red;
+		}*/
+		[title *=com]{
+			color: orange;
+		}
+	</style>
+</head>
+<body>
+	<a href="#">#</a><br>
+	<a href="javascript:;" title="#">title="javascript"</a><br>
+	<p title="p">我只是测试用的！！</p><br>
+	<a href="#"title="#">title="#"</a><br>
+	<a href="#" title="kuazhu">title="kuazhu"</a><br>
+	<a href="#" title="kuazhu.com">title="kuazhu.com"</a><br>
+	<a href="#" title="kuazhu com">title="kuazhu com"</a><br> 	
+	<a href="#" title="kuazhu-com">title="kuazhu-com"</a><br>
+	<a href="#" title="kuazhu&com">title="kuazhu&com"</a><br>
+</body>
+</html>

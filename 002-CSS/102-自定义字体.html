@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>102-自定义字体.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		@font-faca{
+			font-family: fonttest;
+			src:url(./fonts/Sansation_Light.eot),
+				url(./fonts/Sansation_Light.ttf);			
+		}
+		@font-face{
+			font-family: fonttest;
+			src:url(./fonts/Sansation_Bold.eot),
+				url(./fonts/Sansation_Bold.ttf);
+			font-weight: bold;
+		}
+		p{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin:100px auto;
+			line-height: 200px;
+			font-family: fonttest;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<p>hello,俺是测试字体的！！</p>
+</body>
+</html>

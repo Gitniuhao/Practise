@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>078-绝对定位.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background-color: tomato;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+		}
+		span{
+			position: absolute;
+			top:0;
+			right: 0;
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			border: 1px solid #000;
+			padding:20px;
+			margin: 20px; 
+		}
+	</style>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<span>span</span>
+</body>
+</html>

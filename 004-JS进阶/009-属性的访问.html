@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-属性的访问.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log(this.name);
+	};
+	Person.prototype.sayAge = function(){
+		console.log(this.age)
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18)
+	//当用对象的实例去访问一个属性时,首先去查找对象自身是否有该属性,如果没有去对象的原型链上查找,如果整个原型链上都没有该属性值则该属性是undefined
+	console.log('p1',p1)
+	console.log('p1.name',p1.name)
+	console.log('p1.age',p1.age)
+	console.log('p1.sayName',p1.sayName)
+	console.log('p1.test',p1.test)
+</script>
+</html>

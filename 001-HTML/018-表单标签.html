@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-表单标签.html</title>
+	<style>
+		textarea{
+			resize:none;
+		}
+	</style>
+</head>
+<body>
+	<form action="http://www.taobao.com" method="GET">
+		<p>
+			<label for="username">账号：</label>
+			<input type="text" name="username" placeholder="请输入账号"  autocomplete="off" id="username">
+		</p>
+		<p>
+			<label for="password">密码：</label>
+			<input type="password" name="password" placeholder="请输入密码"  id="password">
+		</p>
+		<p>
+			<input type="radio" name="sex" value="male">男
+			<input type="radio" name="sex" value="female">女
+			<input type="radio" name="sex" value="third">第三性别
+		</p>
+		<p>
+			<input type="checkbox" name="hobby" value="sing">唱
+			<input type="checkbox" name="hobby" value="jump">跳
+			<input type="checkbox" name="hobby" value="rap">rap
+			<input type="checkbox" name="hobby" value="basketball">篮球
+		</p>
+		<P>
+			上传照片：<input type="file">
+		</P>
+		<p>
+			<label for="email">校验邮箱：</label>
+			<input type="email" name="email" id="email" placeholder="请输入邮箱">
+		</p>
+		<p>
+			<label for="number">输入数字：</label>
+			<input type="number" name="number" id="number" placeholder="请输入数字">
+		</p>
+		<p>
+			日期：<input type="date" name="date">
+		</p>
+		<p>
+			调色板：<input type="color" name="color">
+		</p>
+		<p>
+			选择城市：
+			<select name="city" id="">
+				<optgroup label="城市">
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="shengzhen">深圳</option>
+				<option value="hangzhou">杭州</option>
+				<option value="xuchang" selected>许昌</option>
+				</optgroup>
+				<optgroup label="县级">
+					<option value="yuzhou">禹州</option>
+					<option value="xiangxian">襄县</option>
+					<option value="changge">长葛</option>
+					<option value="yanling">鄢陵</option>
+				</optgroup>
+			</select>
+		</p>
+		<label for="text">自我介绍：</label>
+		 <textarea name="" id="text" cols="30" rows="5"  placeholder="请自我介绍"></textarea>
+		<p>
+			<input type="button" value="注册">
+			<input type="button" value="登录">
+			<input type="submit" >				<input type="reset" value="清空">
+			<input type="hidden" name="secrte" value="1546541641">
+		</p>
+		<input type="image" src="./images/001.jpg">
+		
+	</form>
+</body>
+</html>

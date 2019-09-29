@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>161-共通事件属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background-color: #ff6700;
+			overflow: hidden;
+			margin:200px auto;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background-color: #330;
+			margin:150px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather =document.getElementById('father')
+	var oSon =document.getElementById('son')
+	oFather.onclick=function(ev){
+		console.log(ev.currentTarget)
+		console.log(ev.target)
+		console.log(ev.type)
+	}
+	oSon.onclick=function(ev){
+		console.log(ev.currentTarget)
+		console.log(ev.target)
+		console.log(ev.type)
+	}
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-优先级下.html</title>
+	<style>
+		/*#d1 #u1 #l1 #p1{
+			color: orange;
+		}
+		#d1 #l1 #p1{
+			color: red;
+		}
+		#l1 #p1{
+			color: green;
+		}
+		#u1 #l1 .p1{
+			color: orange;
+		}
+		#ul #p1{
+			color: green;
+		}
+		#l1 #p1{
+			color: red;
+		}*/
+		/*#d1 #u1 .l1 p{
+			color: orange;
+		}
+		#d1 #u1 .p1{
+			color: red;
+		}*/
+		#l1 p{
+			color: red !important;
+		}
+		#u1 p{
+			color: orange;
+		}
+	</style>
+</head>
+<body>	
+	<div class="d1" id="d1">
+		<ul class="u1" id="u1">
+			<li class="l1" id="l1">
+				<p class="p1" id="p1">omygad!!!</p>
+			</li>
+		</ul>
+	</div>	
+</body>
+</html>
+<!-- 优先级比较：间接选中>直接选中>
+(单个选择器：id>类>标签>通用)
+（混合选择器）：谁的id多就听谁的>ID一样多时，谁的类多就听谁的>ID和类一样多时，谁的标签多就听谁的>ID和类还有标签数量都相同时，谁在下面听谁的
+提高优先级：！important -->

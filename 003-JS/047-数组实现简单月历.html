@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-数组实现简单月历.html</title>
+	<style type="text/css" media="screen">
+		*{
+			margin:0;
+		  	padding: 0;
+		}  
+		body{
+			font-family: "microsoft yahei";
+		}
+	    .clearfix:before, .clearfix:after{
+	    	content: ""; 
+	    	display:table;
+	    }  
+	    .clearfix:after{
+	    	 clear:both;
+	    	 overflow: hidden;
+	    	}  
+	    .clearfix{
+	    	zoom:1;
+	    }  
+	    .f-wrap{
+	    	width: 450px; 
+	    	margin:50px auto; 
+	    	text-align: left;
+	    } 
+	 
+	    .m-yearCalendar{
+	    	padding:15px; 
+	    	background-color:#f0f0f0; 
+	    	border:1px solid #ccc;
+	    	 width:290px;
+	    	}
+	    #tabNav{
+	     	margin-right: -10px; 
+	     }
+	    #tabNav li{
+	    	float:left; 
+	    	display: inline; 
+	    	margin:0 10px 10px 0; 
+	    	width:88px; 
+	    	height:88px;
+	    	text-align: center;
+	    	 background-color:#333;
+	    	 color:#fff;
+	    	 border:1px solid #333;
+	    	}
+	    #tabNav li.active{
+	       	background-color:#fff;
+	       	color:green; 
+	  }
+	    #tabNav li h2{
+	    	line-height:45px;
+	    	 font-size:40px;
+	    	 padding:10px 0 0;
+	    	 font-weight: normal;
+	    	}
+	    #tabNav li p{
+	     	line-height: 30px; 
+	     	font-size:16px;
+	 	}
+	    #tabText{ background-color:#f0f0f0;
+	     	padding: 10px; 
+	     	line-height: 24px; 
+	    	border:1px solid #fff;
+	}
+	    #tabText h2{ 
+	     	line-height:24px;
+	     	color:#666;
+	     	font-size:18px;
+	     	padding:4px 0 10px;
+	 }
+	    #tabText p{
+	    	line-height: 24px; 
+	    	color:#666;
+		}
+</style>
+</head>
+<body>
+	<div class="f-wrap">
+	<div class="m-yearCalendar">
+		<ul id="tabNav" class="clearfix">
+			<li><h2>1</h2><p>JAN</p></li>
+			<li><h2>2</h2><p>FER</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>SUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOV</p></li>
+			<li><h2>12</h2><p>DEC</p></li>
+		</ul>
+		<div id="tabText"></div>
+	</div>
+</div>
+</body>
+<script>
+	var aLi = document.getElementById('tabNav').getElementsByTagName('li');
+		var oTxt = document.getElementById('tabText');
+		var i = 0;
+		var aDatas = [
+			'一月那些事儿...',
+			'二月那些事儿...',
+			'三月那些事儿...',
+			'四月那些事儿...',
+			'五月那些事儿...',
+			'六月那些事儿...',
+			'七月那些事儿...',
+			'八月那些事儿...',
+			'九月那些事儿...',
+			'十月那些事儿...',
+			'十一月那些事儿...',
+			'十二月那些事儿...'
+		]
+		for(i=0; i<aLi.length; i++){
+			aLi[i].index = i;
+			aLi[i].onmouseover = function(){
+				for(i=0; i<aLi.length; i++){
+					aLi[i].className = '';
+				}
+				this.className = 'active';
+				oTxt.innerHTML = '<h2>' + (this.index +1 ) + '月活动</h2><p>' + aDatas[this.index] + '</p>'
+			}
+		}
+</script>
+</html>

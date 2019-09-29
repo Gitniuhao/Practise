@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>085-手风琴案列.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 200px auto;
+			/*border: 5px solid #000;*/
+			overflow: hidden;
+		}
+		li{
+			list-style: none;
+			width: 20%;
+			height: 100%;
+			float: left;
+			transition: width 1s ;
+		}								
+		ul:hover li{
+			width: 50px;
+		}
+		ul li:hover{
+			width: 800px;
+		}
+		ul img{
+			height:600px;	
+		}
+	</style>
+</head>
+<body>
+		<ul>
+			<li><img src="./img/手风琴1.jpg" alt=""></li>
+			<li><img src="./img/手风琴2.jpg" alt=""></li>
+			<li><img src="./img/手风琴3.jpg" alt=""></li>
+			<li><img src="./img/手风琴4.jpg" alt=""></li>
+			<li><img src="./img/手风琴5.jpg" alt=""></li>
+		</ul>	
+</body>
+</html>

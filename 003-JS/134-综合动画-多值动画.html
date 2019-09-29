@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>134-综合动画-多值动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		 div{
+		 	position: absolute;
+		 	top: 0;
+		 	left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: #069;
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 100px;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>	
+		<div id="box1">变化</div>
+</body>
+<script>
+
+		// obj 表示要修改的是那个DOM对象
+		// options 表示属性和值的对象
+		// isLinear 表示动画是匀速还是减速执行(默认是匀速,true是匀速,false是减速)
+		// fnEnd 表示结束时的回调函数
+	function animate1(obj,options,islinear,fnEnd){
+		if(typeof islinear == undefined){
+			islinear=true;//让动画默认就是匀速执行
+		}
+		clearInterval(obj.timer);
+		var iSpeed=0;		
+		obj.timer=setInterval(function(){
+		var isStopAll=true;//当这个值为真时，关闭定时器，停止所有动画
+		for(var attr in options){//循环遍历所有对象
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr == 'opacity'){
+				current=Math.round(current*100);
+			}
+			if(islinear){
+				// 匀速动画速度
+				if(current <options[attr]){
+					iSpeed=10;
+				}else{
+					iSpeed=-10;
+				}
+				// 匀速动画结束条件
+				if(Math.abs(options[attr]-current) < Math.abs(iSpeed)){
+					if(attr =='opacity'){//把匀速动画的结果直接调到目标值(只有匀速才有
+						obj.style[attr] = options[attr];//options[attr]表示的是对象中的值,相当于target
+					}else{
+						obj.style[attr] = options[attr]+'px';
+					}
+				}else{
+						isStopAll=false;//只要有一个值没有变化完毕，动画就不能停止（定时器就不能关闭
+					}
+																		
+			}else{
+				// 减速动画速度
+				iSpeed=(options[attr]-current)/10;
+				if(iSpeed >0){
+					iSpeed=Math.ceil(iSpeed);
+				}else{
+					iSpeed=Math.floor(iSpeed);
+				}
+				// 减速动画结束条件
+				if(iSpeed){//表示iSpeed没有达到0值,即没有完成值得演变
+					isStopAll=false;//只要有一个值没有变化完毕，动画就不能停止（定时器就不能关闭
+				}
+
+			if(isStopAll){//判断此变量，决定是否关闭定时器,即结束动画
+				clearInterval(obj.timer);
+				typeof fnEnd=='function' && fnEnd();//如果有传入函数的话，执行否则不执行
+			}else{//不停止动画，继续执行
+				if(attr == 'opacity'){
+					obj.style[attr]=(current+iSpeed)/100;
+				}else{
+					obj.style[attr]=current+iSpeed+'px';
+					}
+				}	
+			}
+		}console.log(iSpeed)			
+	},30)
+}				
+	var oDiv1 =document.getElementById('box1'); 
+	var timer=0;
+	// console.log(oDiv1)
+	// console.log(oDiv2)
+	oDiv1.onmouseover=function(){
+		animate1(oDiv1,{width:400,height:400,opacity:100},false,function(){
+			animate1(oDiv1,{left:500},false)
+		})
+	}
+</script>
+</html>

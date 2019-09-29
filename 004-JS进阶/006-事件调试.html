@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-事件调试.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="开始">
+</body>
+<script>
+	function sum(num){
+		var result = 0;
+	try{
+		if(isNaN(parseInt(num))){
+			throw new Error('not a number')
+		}
+		for(var i=0;i<= num;i++){
+			result += i;
+		}
+		return result;
+	}catch(e){
+		console.log(e)
+	}finally{
+		console.log('finally....')
+	}		
+	}
+	function sum1(num){
+		return num*10;
+	}
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var sVale = oTxt.value;
+		var target = sum(sVale);
+		console.log(target)
+	}
+	
+</script>
+</html>

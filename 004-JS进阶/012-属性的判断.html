@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-属性的判断.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log(this.name);
+	};
+	Person.prototype.sayAge = function(){
+		console.log(this.age)
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18)
+	console.log('p1',p1)
+	console.log(p1.hasOwnProperty('name'))
+	//只在自身找，自身没有就返回false
+	console.log(p1.hasOwnProperty('LEGS'))
+	console.log('LEGS'in p1)
+	//现在自身找，自身没有就去原型上找
+	console.log('name'in p1)
+	//用于判断属性是否只存在于原型中
+	function hasOwnPropertyOfPrototype(obj,attr){
+		return !obj.hasOwnProperty(attr) && attr in obj;
+	}
+	console.log(hasOwnPropertyOfPrototype(p1,'name'))
+	console.log(hasOwnPropertyOfPrototype(p1,'LEGS'))
+</script>
+</html>

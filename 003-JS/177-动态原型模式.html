@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>177-动态原型模式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Preson(name,age){
+		this.name = name;
+		this.age = age;
+		if(!this.sayName){
+			console.log("添加前",Preson.prototype)
+			Preson.prototype.sayName = function(){
+			console.log("I am "+this.name);
+		   }
+	  }
+		if(!this.sayAge){
+			Preson.prototype.sayAge = function(){
+			console.log("I am "+this.age +" years old");
+			console.log("添加后",Preson.prototype)
+	 	  }
+	  }		
+ }		
+	var preson1 = new Preson('liming',20)
+	console.log(preson1);
+	preson1.sayName();
+	preson1.sayAge();
+	var preson2 = new Preson('liumei',18)
+	console.log(preson2);
+	preson2.sayName();
+	preson2.sayAge();
+	console.log(preson1.sayName == Preson.prototype.sayName)
+	console.log(preson2.sayName == Preson.prototype.sayName)
+	console.log(preson1.sayName == preson2.sayName)
+</script>
+</html>

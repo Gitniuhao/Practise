@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>101-滚动图片案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		div{
+			width: 800px;
+			height: 500px;
+			border: 1px solid #000;
+			margin: 200px auto;
+			overflow: hidden;
+		}
+		ul{
+			width: 3200px;
+			height: 500px;
+			animation: sport 5s linear infinite;
+
+		}
+		@keyframes sport{
+			0%{
+				margin-left: 0px;
+			}
+			100%{
+				margin-left: -2400px;
+			}
+		}
+		li{
+			float: left;
+			width: 800px;
+			height: 500px;
+		}
+		ul li img{
+			width: 100%;
+			height: 100%;
+		}
+		ul:hover{
+			animation-play-state: paused;
+		}
+		ul:hover li{
+			opacity: 0.5;			
+		}
+		ul li:hover{
+			opacity: 1;
+		}
+		li:nth-child(1){
+			background-color: red;
+		}
+		li:nth-child(2){
+			background-color: blue;
+		}
+		li:nth-child(3){
+			background-color: green;
+		}
+		li:nth-child(4){
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><img src="./img/ad1.jpg" alt=""></li>
+			<li><img src="./img/ad2.jpg" alt=""></li>
+			<li><img src="./img/ad3.jpg" alt=""></li>
+			<li><img src="./img/ad1.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>

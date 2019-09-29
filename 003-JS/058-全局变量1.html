@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>058-全局变量1.html</title>
+	<script>
+		var a = 10;
+		function fn1(){
+			console.log('fn1',a)
+			a = 20;
+			function fn2(){
+				console.log('fn2',a)
+			}
+			fn2()
+		}
+		fn1()
+		a = 30;
+		console.log('go',a)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

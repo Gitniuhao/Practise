@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>189-量词案例-各种验证.html</title>
+</head>
+<body>
+	检测合法年份：
+	<input type="text" id="txt1">
+	<input type="button" id="btn1" value="验证年份">	
+	验证手机号：
+	<input type="text" id="txt2">
+	<input type="button" id="btn2" value="验证年份">	
+	验证密码：
+	<input type="text" id="txt3">
+	<input type="button" id="btn3" value="验证年份">	
+</body>
+<script>
+	var oTxt1 =document.getElementById('txt1');
+	var oBtn1 =document.getElementById('btn1');
+	var oTxt2 =document.getElementById('txt2');
+	var oBtn2 =document.getElementById('btn2');
+	var oTxt3 =document.getElementById('txt3');
+	var oBtn3 =document.getElementById('btn3');
+	oBtn1.onclick=function(){
+		var val1 = oTxt1.value;
+		// 合法年份(公元1000年至公元2999年)
+		var reg = /^[1-2]\d{3}$/;
+		if(reg.test(val1)){
+			alert('合法')
+		}else{
+			alert('不合法')
+		}
+	}
+	oBtn2.onclick=function(){
+		var val2 = oTxt2.value;
+		// 合法手机号13895654645
+		var reg = /^1[3578]\d{9}$/;
+		if(reg.test(val2)){
+			alert('合法')
+		}else{
+			alert('不合法')
+		}
+	}
+	oBtn3.onclick=function(){
+		var val3 = oTxt3.value;
+		// (以字母开头,长度在6~12之间,只能包含字母、数字和下划线)
+		var reg = /^[a-zA-Z]\w{5,11}$/;
+		if(reg.test(val3)){
+			alert('合法')
+		}else{
+			alert('不合法')
+		}
+	}
+</script>
+</html>

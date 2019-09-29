@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-2d转换-复合样式.html</title>
+	<style>
+	*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul{
+			width: 600px;
+			height: 800px;
+			border: 1px solid #000;
+			margin: 200px auto;
+		}
+		li{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			margin:100px auto;
+		}
+		li:nth-child(1){
+			background-color: red;
+			transform:rotate(45deg);
+		}
+		li:nth-child(2){
+			background-color: blue;
+			transform: scale(2);
+		}
+		li:nth-child(3){
+			transform: translate(100px,100px);
+		}
+		li:nth-child(4){
+			background-color: tomato;
+			transform: rotate(45deg) translate(100px,100px) scale(2);
+			transform:translate(100px,100px) rotate(45deg) scale(2);
+			transform: scale(2) rotate(45deg) translate(100px,100px);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

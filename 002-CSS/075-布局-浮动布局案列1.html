@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>075-布局-浮动布局案列1.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clerfix:after{
+			content: "";
+			clear: both;
+			display: block;
+			height: 0;
+			visibility: hidden;
+		}
+		.clerfix{
+			*zoom: 1;
+		}
+		.container{
+			width: 800px;
+			height: 800px;
+			margin: 10px auto;
+		}
+		.header{
+			width: 100%;
+			/*height: 100px;*/
+		}
+		.logo{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background-color: tomato;
+		}
+		.user-info{
+			float: right;
+			width: 200px;
+			height: 50px;
+			background-color: gray;
+		}
+		.cart{
+			float: right;
+			width: 600px;
+			height: 50px;
+			background-color: purple;
+		}
+		.section{
+			width: 100%;
+			/*height: 400px;*/
+			/*background-color: orange;*/
+			margin: 20px 0;
+		}
+		.left-area{
+			float: left;
+			width: 600px;
+			height: 100%;
+			/*background-color: orange;*/
+		}
+		 .section .top-area{
+			width: 100%;
+			height: 340px;
+			/*background-color: orange;*/
+		}
+		 .section .bottom-area{
+			width: 100%;
+			height: 50px;
+			background-color: red;
+			margin-top:10px; 
+		}
+		.section .top-left-area{
+			float: left;
+			width: 400px;
+			height: 100%;
+			/*background-color: gold;*/
+		}
+		.section .top{
+			width: 100%;
+			height: 160px;
+			background-color: gold;
+		}
+		.section .bottom{
+			width: 100%;
+			height: 160px;
+			background-color: gold;
+			margin-top: 20px;
+		}
+		.section .top-right-area{
+			float: right;
+			width: 180px;
+			height: 100%;
+			background-color: pink;
+		}
+		.right-area{
+			float: right;
+			width: 180px;
+			height: 400px;
+			background-color: skyblue;
+		}
+		.footer{
+			width: 100%;
+			height: 50px;
+			background-color: blue;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="header clerfix">
+		<div class="logo"></div>
+		<nav class="user-info"></nav>
+		<div class="cart"></div>
+	</div>
+	<div class="section clerfix">
+		<div class="left-area">
+			<div class="top-area">
+				<div class="top-left-area">
+					<div class="top"></div>
+					<div class="bottom"></div>
+				</div>
+				<div class="top-right-area"></div>
+			</div>
+			<div class="bottom-area"></div>
+		</div>
+		<div class="right-area"></div>
+	</div>
+	<div class="footer"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-事件委托.html</title>
+</head>
+<body>
+	<button>添加</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	   // $('li').on('click',function(){
+	   // 	alert('aaaa')
+	   // })
+	  $('button').on('click',function(){
+	  	var oLi = document.createElement('li');
+	  	oLi.innerHTML = '俺是被拉过来凑数的！';
+	  	$('ul')[0].appendChild(oLi);
+	  });
+	  //方式1：('父元素选择器').delegate('子元素选择器','事件名'，回调函数)
+	  // $('ul').delegate('li','click',function(){
+	  // 		alert('bbbb');
+	  // });
+	  //方式2：('父元素选择器').on('事件名'，'子元素选择器'，回调函数))
+	  //回调函数中的this是触发事件的DOM元素,及具体的某个子DOM元素,页面中动态添加的元素需要通过事件委托的方式来添加事件
+	  $('ul').on('click','li',function(){
+	  	alert('cccc')
+	  	console.log(this)
+	  })
+	});
+</script>
+</html>

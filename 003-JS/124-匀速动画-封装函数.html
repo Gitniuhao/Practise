@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>124-匀速动画-封装函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 400px;
+			/*height: 600px;*/
+			margin:200px auto;
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			background-color: #069;
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 100px;
+		}
+		#box3{
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="box1">变宽</div>
+		<div id="box2">变高</div>
+		<div id="box3">边红</div>
+	</div>
+</body>
+<!-- <script src="js/until.js"></script> -->
+<script>
+	// 封装函数
+	function animate(obj,attr,target){
+		clearInterval(obj.timer);
+		var iSpeed=0;						
+		obj.timer=setInterval(function(){
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr == 'opacity'){
+				current=Math.round(current*100);
+			}
+			// 匀速动画速度
+			if(current <target){
+				iSpeed=10;
+			}else{
+				iSpeed=-10;
+			}
+			// 匀速动画结束条件
+			if(Math.abs(target-current) < Math.abs(iSpeed)){
+				if(attr =='opacity'){
+					obj.style[attr] = target;
+				}else{
+					obj.style[attr] = target+'px';
+				}				
+				clearInterval(obj.timer);
+			}else{
+				if(attr == 'opacity'){
+					obj.style[attr]=(current+iSpeed)/100;
+				}else{
+					obj.style[attr]=current+iSpeed+'px';
+				}				
+			}		
+		},30)
+	}
+	var oDiv1 =document.getElementById('box1'); 
+	var oDiv2 =document.getElementById('box2'); 
+	var oDiv3 =document.getElementById('box3'); 
+	var timer=0;
+	oDiv1.onmouseover=function(){
+		animate(oDiv1,'width',400)
+	}
+	oDiv2.onmouseover=function(){
+		animate(oDiv2,'height',400)
+	}
+	oDiv3.onmouseover=function(){
+		animate(oDiv3,'opacity',1)
+	}
+</script>
+</html>
