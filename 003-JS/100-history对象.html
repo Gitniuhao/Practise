@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100-history对象.html</title>
+</head>
+<body>
+	<a href="https://www.mi.com">小米</a>
+	<a href="https://www.baidu.com">百度</a>
+	<input type="button" id="btn1" value="前进">
+	<input type="button" id="btn2" value="后退">
+</body>
+<script>
+	console.log(window.history)
+	var oBtn1 =document.getElementById('btn1')
+	var oBtn2 =document.getElementById('btn2')
+	oBtn1.onclick=function(){
+		window.history.go(1)
+		window.hisrory.back;
+	}
+	oBtn2.onclick=function(){
+		window.history.go(-1)
+		window.hisrory.go;
+
+	}
+</script>
+</html>

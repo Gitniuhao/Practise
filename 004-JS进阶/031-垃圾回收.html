@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-垃圾回收.html</title>
+</head>
+<body>
+	<div id="box">asdas</div>
+</body>
+<script>
+	//内存是有限的，js引擎必须保证当开辟的对象内存没用的时候，把所分配的内存空间释放出来，这个过程叫做垃圾回收
+	//1、标记清除：垃圾回收器将定期（也就是隔一段时间就会进行一次）从全局对象开始查找所有所有可以获得的对象和收集所有不能获得的对象。对不可获得的对象将会清除。（不可获得的对象也就是没有被引用和被访问的对象）
+	//2、引用计数：跟踪记录每个值被引用的次数，当声明一个变量并将一个引用类型的值赋给该变量时，这个值的引用次数就是1，如果这个值再被赋值给另一个变量，则引用次数加1。相反，如果一个变量脱离了该值的引用，则该值引用次数减1，当次数为0时，就会等待垃圾收集器的回收。
+	var obj = {
+		name:'tom',
+		age:15
+	}//引用1次
+	console.log(obj)
+
+	var obj1 = obj;//引用2次
+
+
+	//如果两个对象的互相引用(循环引用),这就可能造成大量内存得不到回收（内存泄露），因为它们的引用次数永远不可能是 0 。
+	var obj2 = {
+		name:'leo',
+		age:35,
+		firend:obj3
+	}
+	var obj3 = {
+		name:'limei',
+		age:50,
+		firend:obj2
+	}
+
+
+//IE9之前,DOM/BOM对象的垃圾回收策略采用的是引用计数的形式
+		bindEvent();
+	function bindEvent(){
+		var oBox = document.getElementById('box');
+		oBox.onclick = function(){
+			alert(oBox.id);
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-函数防抖.html</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function debounce(fn){
+		//定义一个定时器
+		var timer = 0;
+		return function(){
+			//开启前先关闭定时器
+			clearTimeout(timer);
+			//只有只一次执行的时间超过规定的延迟时间,才能执行函数调用
+			timer = setTimeout(fn,500)
+		}
+	}
+	var i =1;
+	window.onscroll = debounce(function(){
+		i++;
+		console.log(i)
+	})
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>081-属性操作.html</title>
+</head>
+<body>
+	<input type="text" id="txt" value=""> 
+	<input type="button" id="btn" value="点击">
+	<input type="textarea" cols="30" rows='10' id="area">
+</body>
+<script>
+	var oTxt=document.getElementById('txt')
+	var oBtn=document.getElementById('btn')
+	var oArea=document.getElementById('area')
+	oBtn.onclick=function(){
+		// var val =oTxt.value;
+		// oArea.value =val;
+
+		// var val =oTxt['value'];
+		// oArea['value'] =val;
+
+		var obtn1= oTxt.getAttribute('value')
+		console.log(obtn1)
+		var obtn2= oTxt.setAttribute('value','11')
+		// oTxt.removeAttribute('value')
+	}
+</script>
+</html>

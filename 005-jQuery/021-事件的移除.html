@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-事件的移除.html</title>
+</head>
+<body>
+	<div>abhask</div>
+	<div>abhask</div>
+	<div>abhask</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script>	
+	$(function(){
+		function fn(){
+			alert('fn....')
+		}
+	   $('div').on('click',function(){
+			alert('click1...')
+		})
+		$('div').on('click',function(){
+			alert('click2...')
+		})
+		$('div').on('click',fn)	
+		$('div').on('mouseover',function(){
+			alert('mouseover..')
+		})
+		//事件的移除
+		//1:jQuery对象.off(),移除所有事件
+		// $('div').off();
+		//2:jQuery对象.off('事件名'),移除所有事件名对应的事件;
+		$('div').off('mouseover')
+		//3:jQuery对象.off('事件名',函数名),这种方法只能移除有名函数
+		$('div').off('click',fn)
+	});
+</script>
+</html>

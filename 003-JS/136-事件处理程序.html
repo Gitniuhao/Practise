@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>136-事件处理程序.html</title>
+</head>
+<body>
+	<input type="button" id="btn" value="go!">
+</body>
+<script>
+	var oBtn=document.getElementById('btn')
+	function sayhai(){
+		alert('hai...')
+	}
+	function sayok(){
+		alert('ok...')
+	}
+	oBtn.onclick =function(){
+		// alert('aaa')
+	}
+	// oBtn.onclick=sayhai;
+	oBtn.addEventListener('click',sayok,false);
+	oBtn.addEventListener('click',sayhai,false);
+	oBtn.addEventListener('click',function(){
+		alert('hahahah')
+	},false);
+	oBtn.removeEventListener('click',sayok,false);
+	oBtn.removeEventListener('click',sayhai,false);
+	oBtn.removeEventListener('click',function(){
+		alert('hahahah')
+	},false);
+</script>x	
+</html>

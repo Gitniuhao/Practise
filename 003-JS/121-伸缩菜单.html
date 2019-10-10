@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>121-伸缩菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			position: relative;
+			top: 0;
+			left: -300px;
+			width: 300px;
+			height: 500px;
+			background-color: #069;
+			margin-top: 200px;
+		}
+		#sub{
+			position: absolute;
+			top: 0;
+			right:-100px;
+			width: 100px;
+			height: 500px;
+			background-color: #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<dib id="sub"></dib>
+	</div>
+</body>
+<script>
+	var oMain=document.getElementById('main');
+	var timer=0;
+	oMain.onmouseover=function(){
+		clearInterval(timer);
+		var iSpeed=0;
+		if(oMain.offsetLeft <0){
+			iSpeed=10;
+		}else{
+			iSpeed=-10;
+		}
+		timer=setInterval(function(){
+			if(Math.abs(0-oMain.offsetLeft) < Math.abs(iSpeed)){
+				oMain.offsetLeft = "0";
+				clearInterval(timer);
+			}else{
+				oMain.style.left=oMain.offsetLeft+iSpeed+'px';
+			}			
+		},30)
+	}
+	oMain.onmouseout=function(){
+		clearInterval(timer);
+		var iSpeed=0;
+		if(oMain.offsetLeft <-300){
+			iSpeed=10;
+		}else{
+			iSpeed=-10;
+		}
+		timer=setInterval(function(){
+			if(Math.abs(-300-oMain.offsetLeft) < Math.abs(iSpeed)){
+				oMain.offsetLeft = "-300";
+				clearInterval(timer);
+			}else{
+				oMain.style.left=oMain.offsetLeft+iSpeed+'px';
+			}			
+		},30)
+	}
+</script>
+</html>

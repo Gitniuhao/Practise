@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>079-隐藏父元素案例.html</title>
+</head>
+<body>
+	<ul>
+		<li>1<a href="javascipt:;">隐藏</a></li>
+		<li>2<a href="javascipt:;">隐藏</a></li>
+		<li>3<a href="javascipt:;">隐藏</a></li>
+		<li>4<a href="javascipt:;">隐藏</a></li>
+		<li>5<a href="javascipt:;">隐藏</a></li>
+		<li>6<a href="javascipt:;">隐藏</a></li>
+		<li>7<a href="javascipt:;">隐藏</a></li>
+		<li>8<a href="javascipt:;">隐藏</a></li>
+		<li>9<a href="javascipt:;">隐藏</a></li>
+		<li>10<a href="javascipt:;">隐藏</a></li>
+	</ul>
+</body>
+<script>
+	var aA=document. getElementsByTagName('a')
+	console.log()
+	for (var i = Things.length - 1; i >= 0; i--) {
+		Things[i]
+	}
+	for(i=0;i<aA.length;i++){
+		aA[i].onclick=function(){
+			var oLi=this.parentNode;
+			oLi.style.display='none';
+		}
+	}
+</script>
+</html>

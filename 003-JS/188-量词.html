@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>188-量词.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ='3576jbhjh 7634jghjb 876uhujh3434 jihi 98934487'
+	var reg =/\d{2}/g;
+	var reg1 =/\d{2,}/g;
+	var reg2 =/\d{2,6}/g;
+	var reg3 =/\d+/g;
+	var reg4 =/\d?/g;
+	var reg5 =/\d*/g;
+	console.log(str.replace(reg,'*'))
+	console.log(str.replace(reg1,'*'))
+	console.log(str.replace(reg2,'*'))
+	console.log(str.replace(reg3,'*'))
+	console.log(str.replace(reg4,'*'))
+	console.log(str.replace(reg5,'*'))
+</script>
+</html>

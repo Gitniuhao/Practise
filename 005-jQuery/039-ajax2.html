@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-ajax2.html</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	   $('button').on('click',function(){
+	   // 	$.get('039-data.json',{name:'bob',age:25},function(data,status,jqHXR){
+	   // 			console.log(data);
+	   // 			console.log(status);
+	   // 			console.log(jqHXR);
+	   // 		},'json')
+	  	// $.post('039-data.json',{name:'bob',age:25},function(status,jqHXR){
+	   // 			console.log(status);
+	   // 			console.log(jqHXR);
+	   // 		},'text')
+
+	   $.getJSON('039-data.json',function(data,status,jqHXR){
+	   			console.log(data);
+	   			console.log(status);
+	   			console.log(jqHXR);
+	   		})
+		})
+	});
+</script>
+</html>

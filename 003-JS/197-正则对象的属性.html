@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>197-正则对象的属性.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ='abc abc abc';
+	var reg =/abc/g;
+	console.log(reg.lastIndex);
+	console.log(reg.source);
+	console.log(str.replace(reg,'*'));
+	console.log(reg.lastIndex);
+	console.log(reg.source);
+</script>
+</html>

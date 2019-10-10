@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>173-new的作用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(){
+		console.log(this)
+		this.name = 'feiyangdidi';
+		this.age = 19;
+		// return {name:'aodidi'}
+	}
+	show();
+	var obj =new show();
+	console.log(obj)
+	obj.sayhai = function(){
+		console.log('...')
+	}
+	obj.sayhai();
+</script>
+</html>

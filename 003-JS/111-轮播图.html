@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>111-轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		 .carouse1{
+		position: relative;
+		width: 1226px;
+		height: 460px;
+		margin: 200px auto;
+		}
+		 .carouse1 .item{
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: all 1s linear;
+		}
+		 .carouse1 .item img{
+			width: 1226px;
+			height: 460px;
+		}
+		 .carouse1 .btn{
+			width: 40px;
+			height: 60px;
+			color: #d2d5d2;
+			position: absolute;
+			top: 230px;
+			margin-top: -30px;
+			line-height: 60px;
+			font-size: 30px;
+			user-select: none;
+		}
+		 .carouse1 .left-btn{
+			left: 0px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		 .carouse1 .right-btn{
+			right: 0;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+		 .carouse1 .btn:hover{
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			cursor: pointer;
+		}
+		 .carouse1 .carouse1-btns{
+			position: absolute;
+			width: 90px;
+			height: 10px;
+			/*border: 1px solid #000;*/
+			bottom: 25px;
+			right: 35px;
+		}
+		 .carouse1 .carouse1-btns li{
+			width: 10px;
+			height: 10px;
+			background-color: #7b8a96;
+			border: 2px solid #a3adb6;
+			float: left;
+			margin-right: 10px;
+			box-sizing: border-box;
+			border-radius: 50%;
+		}
+		 /* .carouse1 .carouse1-btns li:first-child{
+			background-color: #e4f5fd;
+			border-color: #889298;
+		} */
+		 .carouse1 .carouse1-btns li:hover,
+		 .carouse1 .carouse1-btns li.active{
+			background-color: #e4f5fd;
+			border-color: #889298;
+		}
+	</style>
+</head>
+<body>
+	<div class="carouse1">
+		<ul  class="carouse-ul">
+			<li class="item" style="z-index: 99;"><a href="javascript:;"><img src="images/carousel2.jpg" alt=""></a></li>
+			<li class="item"><a href="javascript:;"><img src="images/carousel1.jpg" alt=""></a></li>
+			<li class="item"><a href="javascript:;"><img src="images/carousel2.jpg" alt=""></a></li>
+			<li class="item"><a href="javascript:;"><img src="images/carousel3.jpg" alt=""></a></li>
+		</ul>
+		<div class="left-btn btn " style="z-index: 999"><i class="iconfont">&lt;</i></div>
+		<div class="right-btn btn " style="z-index: 999"><i class="iconfont">&gt;</i></div>		
+			<ul class="carouse1-btns " style="z-index: 999">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+	</div>				
+</body>
+<script>
+	var aLi=document.querySelectorAll('.carouse-ul li');
+	var oBtnLeft=document.querySelector('.left-btn');
+	var oBtnRight=document.querySelector('.right-btn');
+	var aBtns=document.querySelectorAll(".carouse1-btns li");
+	var timer =0;
+	var oCarouse1 =document.querySelector('.carouse1');
+	console.log(oCarouse1)
+	// console.log(aBtns)
+	// console.log(aLi)
+	var now=0;
+	function table(){
+		for(i=0;i<aLi.length;i++){
+			aLi[i].style.zIndex='';
+			aBtns[i].className='';
+			aLi[i].style.opacity='0'
+		}
+		aLi[now].style.zIndex='99';
+		aBtns[now].className='active';
+		aLi[now].style.opacity='1';
+	}
+	oBtnRight.onclick=function(){
+		now++;
+		if(now>=aLi.length){
+			now=0;
+		}
+		table()
+	}
+	oBtnLeft.onclick=function(){
+		now--;
+		if(now<0){
+			now=aLi.length-1;
+		}
+		table()
+	}
+	// 添加下边按钮事件
+	for(i=0;i<aLi.length;i++){
+		aBtns[i].index=i;
+		aBtns.onclik=function(){
+			now=this.index;
+			table();
+	}
+}
+	// 添加自动轮播
+	timer=setInterval(oBtnRight.onclick,3000);
+	oCarouse1.onmouseover=function(){
+		clearTimeout(timer);
+	}
+	oCarouse1.onmouseout=function(){
+		timer=setInterval(oBtnRight.onclick,3000);
+	}
+</script>
+</html>

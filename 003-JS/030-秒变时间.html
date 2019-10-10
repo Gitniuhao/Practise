@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-秒变时间.html</title>
+	<script>
+		var iSecond=5886;
+		var iH=parseInt(iSecond/3600);
+		console.log(iH);
+		var iM=parseInt((iSecond%3600)/60);
+		console.log(iM);
+		iS=((iSecond%3600)%60);
+		console.log(iS);
+		if(iH<10){
+			iH='0'+iH;
+		}
+		if(iM<10){
+			iM='0'+iM;
+		}
+		if(iS<10){
+			iS='0'+iS;
+		}
+		var iTime='冰岛时间：'+iH+':'+iM+':'+iS;
+		console.log(iTime);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

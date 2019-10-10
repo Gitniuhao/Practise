@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>125-中部固定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		#box{
+			position: absolute;
+			right: 0;
+			top:0;
+			width: 100px;
+			height: 100px;
+			background-color: #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="js/until.js"></script>
+<script>
+	var oBox =document.getElementById('box');
+	oBox.style.top=	window.innerHeight/2-oBox.offsetHeight/2+'px';
+	// console.log(window.innerHeight);	
+	// console.log(oBox.offsetHeight);	
+	window.onresize=window.onscroll=window.onload=function(){
+		var iTop=window.innerHeight/2-oBox.offsetHeight/2+getScrollTop();
+		console.log(iTop)
+		animate(oBox,'top',iTop);
+	}	
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-动画的速度.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #055;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>开始</button>
+	<div></div>
+	<div></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	   $('button').on('click',function(){
+	   	//动画在回调前可以指定速度,默认是匀加速,也就是参数'swing',也可以改为匀速'linear'
+	   	$('div').eq(0).animate({width:400},1000,'swing',function(){
+	   		alert('down...')
+	   	})
+	   	$('div').eq(1).animate({width:400},1000,'linear',function(){
+	   		alert('down...')
+	   	})
+	   })
+	});
+</script>
+</html>

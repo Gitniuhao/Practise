@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-jQuery常见静态方法-map.html</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	//jQuery的map方法不仅能够映射数组,也能映射伪数组,而数组上的map方法只能映射数组:$.map(arr,function(value,index){})
+	var arr =[1,5,4,8,6,10]
+	var res=arr.map(function(value,index){
+		console.log(value,index)
+		return value;
+	})
+	console.log(res)
+	var rea =$.map(arr,function(value,index){
+		console.log(value,index)
+		return value;
+	})
+	console.log(rea)
+	var likearr = {0:'aaa',1:'bbb',2:'ccc',length:3};
+	console.log(likearr);
+	// likearr.map()
+    $.map(likearr,function(index,value){
+		console.log('2::',index,value)
+	})
+	var aDiv = document.getElementsByTagName('div');
+	// aDiv.map(function(){})
+	$.map(aDiv,function(value,index){
+		console.log('3::',value,index)
+	})
+</script>
+</html>

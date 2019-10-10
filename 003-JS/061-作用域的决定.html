@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>061-作用域的决定.html</title>
+	<script>
+		var a = 1;
+		function fn1(){
+			console.log('fn1',a)
+		}
+		function fn2(){
+			var a =2;
+			fn1();
+		}
+		fn2()
+		var age =1;
+		function getage(){
+			var age =2;
+			return age;
+		}
+		alert(age);
+		alert(getage() );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

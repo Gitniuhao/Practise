@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-在函数的外部访问到函数内部的变量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+		// function fn(){
+		// 	var n = 1;
+		// 	add = function(){
+		// 		n++;
+		// 	}
+		// 	return function(){
+		// 		return n;
+		// 	}
+		// }
+		// var result = fn();
+		// console.log(result());//1
+		// add();
+		// console.log(result());//2
+		// add();
+		// console.log(result());//3
+		function fn(){
+			var n = 1;
+			//定义一个变量,而变量的值是一个函数
+			add = function(){
+				n++;
+			}
+			return function(){
+				console.log(n);
+			}
+		}
+		console.log(fn());//返回的是一个函数
+		fn()();
+		var result = fn();
+		result();
+		add();
+		result();
+		add();
+		result();
+</script>
+</html>

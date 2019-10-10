@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-面向对象-拖拽-继承.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Garg(options){
+		//罗列属性
+		this.width = options.width;
+		this.height = options.height;
+		this.background = options.background;
+		this.oDiv = null;
+		this.disX = 0;
+		this.disY = 0;
+		//初始化事件
+		this.init();
+		//绑定事件
+		this.bind();
+	}
+	Garg.prototype.init = function(){
+		this.oDiv = document.createElement('div');
+		this.oDiv.style.position = 'absolute';
+		this.oDiv.style.left = '0px';
+		this.oDiv.style.top = '0px';
+		this.oDiv.style.width = this.width + 'px';
+		this.oDiv.style.height = this.height + 'px';
+		this.oDiv.style.background = this.background;
+		document.body.appendChild(this.oDiv);
+	}
+	Garg.prototype.bind = function(){
+		this.oDiv.onmousedown = function(ev){
+			this.disX = ev.clientX - this.oDiv.offsetLeft;
+			this.disY = ev.clientY - this.oDiv.offsetTop;
+			// document.onmousemove = function(ev){
+			// 	this.oDiv.style.left = ev.clientX - this.disX + 'px';
+			// 	this.oDiv.style.top = ev.clientY - this.disY + 'px';
+			// }.bind(this)
+			document.onmousemove = this.fnmove.bind(this);
+			document.onmouseup = this.fnup;
+			// document.onmouseup = function(){
+			// 	document.onmousemove = null;
+			// 	document.onmouseup = null;				
+			// }
+		}.bind(this)
+	}
+	Garg.prototype.fnmove = function(ev){
+		this.oDiv.style.left = ev.clientX - this.disX + 'px';
+		this.oDiv.style.top = ev.clientY - this.disY + 'px';
+	}
+	Garg.prototype.fnup = function(){
+		document.onmousemove = null;
+		document.onmouseup = null;				
+	}
+	function limitGarg(options){
+		Garg.call(this,options);
+	}
+	limitGarg.prototype = Object.create(Garg.prototype);
+	limitGarg.prototype.fnmove = function(ev){
+		var l = ev.clientX - this.disX;
+		var t = ev.clientY - this.disY;
+		if(l < 0){
+			l = 0;
+		}else if(l > window.innerWidth - this.oDiv.offsetWidth){
+			l = window.innerWidth - this.oDiv.offsetWidth;
+		};
+		if(t < 0){
+			t = 0;
+		}else if(t > window.innerHeight - this.oDiv.offsetHeight){
+			t = window.innerHeight - this.oDiv.offsetHeight;
+		}
+		this.oDiv.style.left = l + 'px';
+		this.oDiv.style.top = t + 'px';	
+	}
+	new Garg({
+		width:200,
+		height:200,
+		background:'orange'
+	});
+	new Garg({
+		width:400,
+		height:400,
+		background:'tomato'
+	});
+	new limitGarg({
+		width:300,
+		height:300,
+		background:'yellow'
+	});
+	new limitGarg({
+		width:500,
+		height:500,
+		background:'green'
+	});
+</script>
+</html>

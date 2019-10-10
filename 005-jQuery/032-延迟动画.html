@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-延迟动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin-top: 20px;
+			background-color: #582;
+		}
+	</style>
+</head>
+<body>
+	<button>延迟动画</button>
+	<div>dix1</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	   $('button').on('click',function(){
+	   	//jQuery对象.delay(时长)，延迟动画只对后面的动画起作用
+	   	$('div').delay(1000).animate({width:400})
+	   })
+	});
+</script>
+</html>

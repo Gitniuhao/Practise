@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-添加节点.html</title>
+</head>
+<body>
+	<button>插入父节点后</button>
+	<button>插入父节点后</button>
+	<button>插入父节点前</button>
+	<button>插入父节点前</button>
+	<button>插入父节点外后</button>
+	<button>插入父节点外前</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			var oLi1 = $('<li>俺是被拉来插入的</li>');
+	   		$('ul').append(oLi1)
+		})
+		$('button').eq(1).on('click',function(){
+			var oLi2 = $('<li>俺是被拉来插入的</li>');
+	   		(oLi2).appendTo('ul')
+		})
+		$('button').eq(2).on('click',function(){
+			var oLi3 = $('<li>俺是被拉来插入的</li>');
+	   		$('ul').prepend(oLi3)
+		})
+		$('button').eq(3).on('click',function(){
+			var oLi4 = $('<li>俺是被拉来插入的</li>');
+	   		(oLi4).prependTo('ul')
+		})
+		$('button').eq(4).on('click',function(){
+			var op1 = $('<p>俺是被拉来插入的</p>');
+	   		$('ul').after(op1)
+		})
+		$('button').eq(5).on('click',function(){
+			var op2 = $('<p>俺是被拉来插入的</p>');
+	   		$('ul').before(op2)
+		})
+	   
+	});
+</script>
+</html>

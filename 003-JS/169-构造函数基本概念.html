@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>169-构造函数基本概念.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// Array就是构造函数,也叫作类
+	// arr就是类的实例对象/对象实例
+	var arr = new Array(1,5,3,8,12)
+	var arr2 =new Array(12,55,23,18,78)
+	// 静态方法,单一调用
+	console.log(Math.floor(1.2))
+	// 实例方法,可以和源对象多次调用
+	var arr1 = arr.sort(function(n1,n2){
+		return n1 - n2;
+	})
+	var arr3 = arr2.sort(function(n1,n2){
+		return n1 - n2;
+	})
+	console.log(arr1)
+	console.log(arr3)
+</script>
+</html>

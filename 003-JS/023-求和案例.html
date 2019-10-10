@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-求和案例.html</title>
+</head>
+<body>
+	<input type="text" id="txt1">+
+	<input type="text" id="txt2">
+	<input type="button" id="btn" value="求和">
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		// console.log(oBtn)
+		var oTxt1=document.getElementById('txt1')
+		var oTxt2=document.getElementById('txt2')
+		var val1=parseFloat(oTxt1.value)
+		var val2=parseFloat(oTxt2.value)
+		if(isNaN(val1)){
+			alert('宁第一个输入的值TM的不对，滚去重输！')
+		}else if(isNaN(val2)){
+			alert('宁第二个输入的值TM的不对，滚去重输！')
+		}else{
+		alert(val1+val2)
+		}
+	}
+</script>
+</html>

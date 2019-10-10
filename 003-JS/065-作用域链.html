@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>065-作用域链.html</title>
+	<script>
+		function fn1(){
+			var a=1;
+			var b =2;
+			console.log('fn1',a)
+			console.log('fn1',b)
+			 function fn2(){
+			 	var a =3
+			 	console.log('fn2',a)
+			   	console.log('fn2',b)
+		 			function fn3(){
+			 			var b=4;
+			 			console.log('fn3',a)
+			 			console.log('fn3',b)
+		 		}
+		 		fn3()
+			 }
+			 fn2()
+		}
+		fn1()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

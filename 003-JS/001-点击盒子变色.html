@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-点击盒子变色.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #069;
+			margin: 300px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" onclick="this.style.background='tomato'"></div>
+</body>
+</html>
+<!-- 修改元素属性的步骤
+1、HTML页面布局；
+2、确定修改哪些元素；
+3、确定触发修改元素的事件（事件属性），并将触发事件即事件属性添加到触发元素上；
+4、编写JS代码里修改属性 -->

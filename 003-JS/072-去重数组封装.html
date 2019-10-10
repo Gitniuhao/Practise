@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>072-去重数组封装.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr =[1,5,9,6,9,4,3,5,4,10,1]
+	var result =[];
+	function uniqueArray(arr){		
+		for(var i=0;i<arr.length;i++){
+			var isDup = false;
+		for(var j=0;j<result.length;j++){
+			if(arr[i] == result[j]){
+				isDup = true;
+				break;
+			}
+		}
+		if(!isDup){
+		result.push(arr[i]);
+	   }
+    }	
+     return result;
+  }
+	console.log('before',arr)
+	var arr1 = uniqueArray(arr);
+	console.log('after',arr)
+	console.log('去重后',arr1)	
+</script>
+</html>

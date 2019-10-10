@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-显示隐藏案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 400px;
+			height: 100px;
+			border: 1px solid #000;
+			background-color: #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="点击有惊喜哦" id="btn">
+	<div id="box">我只是用来测试的内容，你点开其实也没啥东西</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var oBox = document.getElementById('box')
+		if(oBox.style.display == 'none'){
+			oBox.style.display = 'block'
+		}else{
+			oBox.style.display = 'none'
+		}
+	}
+</script>	
+</html>

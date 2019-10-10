@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-自定义动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin-top: 20px;
+			background-color: #582;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div>dix1</div>
+	<div>div2</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//自定义动画:jQuery对象.animate(需要执行动画的属性对象,时长,回调函数)
+	   $('button').on('click',function(){
+	   	//多个属性写在一起可以执行同步动画
+	   // 	$('div').animate({
+	   // 		width:400,
+	   // 		height:400
+	   // 	},1000,function(){
+	   // 		alert('over..')
+	   // 	});
+	   //也可以使用累加累减
+	   	// $('button').on('click',function(){
+	   	// 	$('div').animate({
+	   	// 	width:'+=50',
+	   	// 	height:'-=50'
+	   	// 	},1000,function(){
+	   	// 	alert('over..')
+	   	// });
+	   	//多个动画按调用的顺序执行 
+	   	// $('div').animate({width:400},1000)
+	   	// $('div').animate({height:400},1000)
+	   	// $('div').animate({opacity:0.6},1000)
+	   	//在动画方法的回调中再执行动画,回调中的动画会等待前面的动画执行完毕
+	   	// $('div').animate({width:400},1000,function(){
+	   	// 	$('div').animate({height:400},1000,function(){
+	   	// 		$('div').animate({opacity:0.6},1000)
+	   	// 	})
+	   	// });
+	   	//多个动画链式调用,后面的动画会等待前面的动画执行完毕
+	   	$('div').animate({width:400},1000).animate({height:400},1000).animate({opacity:0.6},1000)
+	   })
+	});
+</script>
+</html>
