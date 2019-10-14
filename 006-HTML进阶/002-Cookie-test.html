@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-Cookie-test.html</title>
+</head>
+<body>
+	Cookie-test!!
+</body>
+<script>
+	/*
+	//浏览器设置cookie
+	document.cookie = 'userName = liming';
+	document.cookie = 'age = 20';
+	//浏览器设置cookie到期时间
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate() + 10);
+	document.cookie = 'userName = limei;Expires=' + oDate;
+	document.cookie = 'userName = lidong;Max-Age=10';
+	*/
+	//设置cookie
+	function setCookie(key,val,iDate){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDate);
+		document.cookie = key + '=' + val +';Expires=' + oDate;
+	}
+	setCookie('userName','阿皓',10)
+	setCookie('age','20',10)
+	setCookie('sex','male',10)
+	//获取cookie
+	function getCookie(key){
+		var str = document.cookie;
+		// console.log(str)
+		var arr1 = str.split(';')
+		// console.log(arr1)
+		for(var i=0;i<arr1.length;i++){
+			var arr2 = arr1[i].split('=');
+			// console.log(arr2)
+			for(var j=0;j<arr2.length;j++){
+				if(key.trim() == arr2[0].trim()){
+					return arr2[1];
+					break;
+				}
+			}
+		}
+		
+	}
+	console.log(getCookie('age'))
+	//删除cookie
+	function removeCookie(key){
+		setCookie(key,false,-1)
+	}
+	removeCookie('userName')
+</script>
+</html>

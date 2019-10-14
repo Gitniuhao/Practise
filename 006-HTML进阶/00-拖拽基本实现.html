@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>00-拖拽基本实现.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 300px;
+			background-color: #000;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background-color: #598;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+	<div class="target" draggable=true></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function() {
+		$('.container')
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		.on('drop',function(){
+			// console.log('aa')
+			$('.container').append($('.target'))
+	})
+})
+</script>
+</html>
