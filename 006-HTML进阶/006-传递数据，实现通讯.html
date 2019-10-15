@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-传递数据，实现通讯.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 300px;
+			background-color: #000;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background-color: #598;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+	<div class="target" draggable=true></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function() {
+		$('.target')
+		.on('dragstart',function(ev){
+			ev.originalEvent.dataTransfer.setData('targetId','target')
+			// console.log(ev.originalEvent.dataTransfer)
+		})
+		$('.container')
+		.on('dragover',function(ev){
+			ev.preventDefault();				
+		})
+		.on('drop',function(ev){
+			$('.container').append($('.target'))
+			var targetId = ev.originalEvent.dataTransfer.getData('targetId')
+			console.log(targetId)
+		})
+	})
+</script>
+</html>

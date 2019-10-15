@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-canvas的使用.html</title>
+	<style>
+		canvas{
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+</body>
+<script>
+	var oCanvas = document.querySelector('canvas')
+	// console.log(oCanvas)
+	oCanvas.width=600;
+	oCanvas.height=300;
+	// oCanvas.backgroundColor='#000';
+	//获取上下文环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.moveTo(0,0)//指定起始坐标
+	ctx.lineTo(100,100)//指定直线终点坐标
+	ctx.lineTo(100,200)//指定直线终点坐标
+	ctx.strokeStyle='#f00';//指定描边的样式
+	ctx.lineWidth=5;
+	ctx.fillStyle = '#694';
+	ctx.closePath();//封闭路径
+	ctx.stroke();//描边	
+	ctx.fill();//闭合路径后填充
+</script>
+</html>

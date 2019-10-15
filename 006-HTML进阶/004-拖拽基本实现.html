@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>00-拖拽基本实现.html</title>
+	<title>004-拖拽基本实现.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -32,9 +32,8 @@
 			ev.preventDefault();
 		})
 		.on('drop',function(){
-			// console.log('aa')
 			$('.container').append($('.target'))
+		})
 	})
-})
 </script>
 </html>

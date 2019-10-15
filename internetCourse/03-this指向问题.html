@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03-this指向问题.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	ele.onclick= function(){
+		console.log(this)
+		//这里的this指的ele
+	}
+	function Person(name){
+		//var obj ={};new所生成的对象，此时this=obj;
+		this.name = name;
+		//调用new时就等价于obj.name = name;
+		//return obj;最后把new所生成的对象返回
+	}
+	//this指代的是当前对象，而所谓的当前对象是指此时正在调用这个函数的对象，谁调用这个函数this就指向谁
+	var p = new Person();//此时this就指向new所新生成并且返回的这个对象，即实例p;
+
+	var obj = {
+		print:Person
+	}
+	obj.print == Person;
+	window.Person();//this指代的是window，因为Preson由window调用，且一般window都是直接省略的，即Preson()=window.Preson()
+	obj.print()//这里this指代的是obj,因为这里的Preson由obj调用的
+
+	setInterval(Person,200)//此时的Person是由window调用的，this指向为window
+
+	Person.call(document)//等价于document.Person();
+	//一般都是对象.方法(),而调用call是方法.call(对象)
+
+	函数.call/apply(任何对象)
+	//就可以直接执行函数
+	//bind指向问题
+	var 新的函数=函数.bind(obj)
+	//新函数的this会永久指向OBJ,所以说this被绑定了,bind还需要再进行调用
+</script>
+</html>
