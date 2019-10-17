@@ -34,7 +34,7 @@ body{
 	.box1;
 	border: 50px solid #5852;
 	// .border-r(20px);
-	.border-r-def(@d:20px)
+	.border-r-def()
 }
 //@_表示随机匹配,只要由相同类名就能匹配到
 .trangle(@_,@d,@c){
@@ -76,7 +76,34 @@ body{
 	.set(font-size,50);
 }
 //运算
+.clac-fs(@fs){
+	font-size: @fs + 10px;
+}
 .box7{
-	// font-size: 20px + 40px;
-	font-size: 20px - 5;
+	.clac-fs(20px);
+	// font-size: clac(20px + 40px);//浏览器自带语法
+	// font-size: 20px - 5;
+}
+
+//嵌套
+ul{
+	width: 500px;
+	height: 300px;	
+	margin-top: 50px;
+	border: 1px solid #000;
+	li{
+		list-style:none;
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		span{
+			float:left;
+		}
+		a{
+			float: right;
+		}
+		&:hover{
+			background-color: #ff6700;
+		}
+	}
 }

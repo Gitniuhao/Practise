@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-屏幕尺寸适配-em.html</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-size: 16px;
+		}
+		img{
+			float: left;
+			/*em:可以根据不同的屏幕来设置元素的font-size,再利用em来适配,ems是根据当前父元素的字体的大小而决定的，但是元素的font-size可以被继承,同时js和css经常会修改font-size,如果用em来适配的话容易造成混乱*/
+			width: 10em;
+		}
+		p{
+			float: left;
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/002.jpg" alt="">
+	<p>我是内容哎！！</p>
+</body>
+</html>

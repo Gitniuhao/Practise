@@ -1,0 +1,7 @@
+p{
+	color: #582;
+}
+/*打印机不能设置背景颜色，默认白色*/
+body{
+	background-color:green;
+}

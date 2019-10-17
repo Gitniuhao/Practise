@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  float: left;
+  width: 8rem;
+}
+p {
+  float: left;
+  font-size: 0.64rem;
+}

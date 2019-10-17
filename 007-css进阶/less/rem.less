@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+//此时@fs=1rem;
+@fs:37.5px;
+.rem(@attr,@val){
+	@{attr}:unit(@val/@fs,rem);
+}
+img{
+	float: left;
+	.rem(width,300);
+}
+p{
+	float: left;
+	.rem(font-size,24);
+}
