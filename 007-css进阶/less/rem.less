@@ -2,14 +2,24 @@
 	margin: 0;
 	padding: 0;
 }
-//此时@fs=1rem;
+//指定根元素的大小此时@fs=1rem;
 @fs:37.5px;
-.rem(@attr,@val){
-	@{attr}:unit(@val/@fs,rem);
+.rem(@attr,@val1){
+	@{attr}:unit(@val1/@fs,rem);
+}
+.rem(@attr,@val1,@val2){
+	@{attr}:unit(@val1/@fs,rem) unit(@val2/@fs)
+}
+.rem(@attr,@val1,@val2,@val3){
+	@{attr}:unit(@val1/@fs,rem) unit(@val2/@fs) unit(@val3/@fs)
+}
+.rem(@attr,@val1,@val2,@val3,@val4){
+	@{attr}:unit(@val1/@fs,rem) unit(@val2/@fs) unit(@val3/@fs) unit(@val4/@fs)
 }
 img{
 	float: left;
 	.rem(width,300);
+	.rem(margin,10,10);
 }
 p{
 	float: left;

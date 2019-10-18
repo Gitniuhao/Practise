@@ -3,17 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>014-媒体查询.html</title>
+	<!-- 方法二 -->
+	<!-- <link rel="stylesheet" href="css/screen.css" media="screen and (max-width: 500px)"> -->
+	<link rel="stylesheet" href="css/print.css">
 	<style>
 		*{
 		margin: 0;
 		padding: 0;
 		}
+		/*方法一*/
+		/*(min-width:400px) 浏览器窗口的宽度最小是400px样式生效,换句话说是大于等于400px时样式生效*/
 		@media screen and (min-width: 800px){
 			body{
 				background-color: #869;
 			}
 		}
+		/*(max-width:800px) 浏览器窗口的宽度最大是800px样式生效,换句话说是小于等于800px时样式生效*/
 		@media screen and (max-width: 500px){
+			body{
+				background-color: #000;
+			}
+		@media screen and (orienation:portrait){
 			body{
 				background-color: #000;
 			}

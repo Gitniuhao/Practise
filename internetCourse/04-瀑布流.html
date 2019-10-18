@@ -10,7 +10,7 @@
 			list-style:none;
 		}
 		#box{
-			width: 700px;
+			width: 1100px;
 			margin: 0 auto;
 		}
 		ul{
@@ -31,6 +31,8 @@
 		<ul></ul>
 		<ul></ul>
 		<ul></ul>
+		<ul></ul>
+		<ul></ul>
 	</div>
 </body>
 <script src="js/ajax.js"></script>
@@ -39,13 +41,15 @@
 		//获取页面元素
 		var oBox = document.getElementById('box');
 		var oUl = document.getElementsByTagName('ul');
+		//视口高度
+		var vH = document.documentElement.clientHeight;
 		//最小高度的列
 		function min_height(oUl){
-			var ht = oUl[0].offsetHeight();
+			var ht = oUl[0].offsetHeight;
 			var index = 0;
 			for(var i=0;i<oUl.length;i++){
-				if(oUl[i].offsetHeight() < ht){
-					ht = oUl[i].offsetHeight();
+				if(oUl[i].offsetHeight < ht){
+					ht = oUl[i].offsetHeight;
 					index = i;
 				}
 			}
@@ -56,8 +60,23 @@
 		function loadImg(){
 			ajax("js/04.json",function(data){
 				data = (new Function("return" +data))();
-				alert(data);
+				// alert(data);
+				for(var i=0;i<data.length;i++){
+					var oLi = document.createElement('li');
+					var oImg = document.createElement('img');
+					oImg.src = data[i];
+					oLi.appendChild(oImg);
+					oUl[min_height(oUl)].appendChild(oLi);
+				}
 			})
+		}
+		window.onscroll = function(){
+			// 滚动距离
+			var sH = document.documentElement.scrollTop || document.body.scrollTop;
+			//当页面滚动距离加上视口高度大于等于页面实际高度的时候再次加载图片
+			if(vH+sH >= document.body.scrollHeight *0.8){
+				loadImg();
+			}
 		}
 	}
 </script>

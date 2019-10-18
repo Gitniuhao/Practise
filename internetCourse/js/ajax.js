@@ -3,7 +3,7 @@ function ajax(url,fn){
 	xhr.open('GET',url,true);
 	xhr.send();
 	xhr.onreadystatechange = function(){
-		if(xhr.readystate == 4 && xhr.status == 200){
+		if(xhr.readyState == 4 && xhr.status == 200){
 			fn && fn(xhr.responseText);
 		}
 	}

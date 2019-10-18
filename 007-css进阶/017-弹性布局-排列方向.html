@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-弹性布局-排列方向.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			/*可以实现弹性容器，使内部子元素进行水平排版，而自身由高度*/
+			display: flex;
+			/*默认值：水平方向，起点在左端*/
+			/*flex-direction:row;*/
+			/*水平方向，起点在右端*/
+			/*flex-direction: row-reverse;*/
+			/*垂直方向，起点在上沿*/
+			/*flex-direction:column;*/
+			/*垂直方向，起点在下沿*/
+			flex-direction:column-reverse;
+			width: 1000px;
+			border: 1px solid #000;
+			margin:100px auto;
+		}
+		.son1{
+			width: 200px;
+			height: 50px;
+			background-color: skyblue;
+		}
+		.son2{
+			width: 300px;
+			height: 50px;
+			background-color: tomato;
+		}
+		.son3{
+			width: 500px;
+			height: 50px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

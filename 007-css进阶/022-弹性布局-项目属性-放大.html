@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-弹性布局-项目属性-放大.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			/*可以实现弹性容器，使内部子元素进行水平排版，而自身由高度*/
+			display: flex;
+			flex-wrap: wrap;
+			width: 800px;
+			border: 1px solid #000;
+			margin:100px auto;
+		}
+		.son1{
+			/*默认为0；如果所有值都为1，将等分剩余空间；如果其中一个值为2，其他都为1，则其放大占据空间为其他的一倍*/
+			flex-grow:0;
+			width: 100px;
+			height: 50px;
+			background-color: skyblue;
+		}
+		.son2{
+			flex-grow:1;
+			width: 200px;
+			height: 50px;
+			background-color: tomato;
+		}
+		.son3{
+			flex-grow:2;
+			width: 400px;
+			height: 50px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-弹性布局-项目属性-align-self.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			/*可以实现弹性容器，使内部子元素进行水平排版，而自身由高度*/
+			display: flex;
+			flex-wrap: nowrap;
+			width: 800px;
+			height: 500px;
+			border: 1px solid #000;
+			margin:100px auto;
+			align-items: flex-start;
+		}
+		.son1{
+			width: 100px;
+			height: 50px;
+			background-color: skyblue;
+		}
+		.son2{
+			align-self: center;
+			width: 200px;
+			height: 50px;
+			background-color: tomato;
+		}
+		.son3{
+			width: 400px;
+			height: 50px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>
