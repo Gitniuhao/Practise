@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-BootStrap使用.html</title>
+	<link rel="stylesheet" href="BootStrap/bootstrap-3.3.7/dist/css/bootstrap.css">
+  <style>
+    .container{
+     /* width: 1000px;*/
+      height: 50px;
+      background-color: #962;
+    }
+    @media screen and (max-width: 768px){
+      .container,.progress{
+          width: 100%;
+      }
+    }
+    @media screen and (min-width: 768px) and(max-width: 992px){
+      .container,.progress{
+          width: 750px;
+      }
+    }
+    .row div{
+      background-color: #823;
+    }
+  </style>
+</head>
+<body>
+	<div class="container"></div>
+
+
+  <div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 35%">
+    <span class="sr-only">35% Complete (success)</span>
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+    <span class="sr-only">20% Complete (warning)</span>
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 10%">
+    <span class="sr-only">10% Complete (danger)</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+</div>
+<div class="row">
+  <div class="col-md-8">.col-md-8</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-6">.col-md-6</div>
+  <div class="col-md-6">.col-md-6</div>
+</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="BootStrap/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+</html>

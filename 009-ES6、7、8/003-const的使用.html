@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-const的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	//常量不可以再次赋值
+	const PI = 3.1415926;
+	PI = 0.5645;
+	console.log(PI);
+	*/
+	/*
+	//定义常量的时候必须赋初值
+	const PI;
+	PI = 0.545415;
+	console.log(PI)
+	*/
+	//const保证的是这个地址不变,但地址指向的数据是可以修改的
+	const obj = {
+		name:"tom",
+		age:50
+	}
+	/*
+	obj = {
+		name:"leo",
+		age:40
+	}
+	*/
+	obj.name = "leo";
+	console.log(obj)
+	//const定义的常量在const命令所在的代码块内有效
+	if(true){
+		const PI = 3.1415926;
+	}
+	console.log(PI)
+	//const定义的常量不会声明提升
+	console.log(b);
+	const b = 999;
+</script>
+</html>

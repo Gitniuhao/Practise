@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-数组的结构解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//按照对应位置，把等号右边数值中的值赋给等号左边数组中的值，且数组可以嵌套
+	let [a,b,c] = [1,2,3];
+	console.log(a,b,c)
+
+	let [a,b,c] = [1,[2,3],4];
+	console.log(a,b,c)
+	//如果解构不成功，变量的值就等于undefined;
+	let [a,b,c] = [1,5]
+	console.log(a,b,c)
+	//如果等号左边有默认值，那么等号右边对应的位置是undefined(没有或者undefined)时，默认值才会生效
+	let [a = 111,b,c = 666] = [222,333,444]
+	console.log(a,b,c)
+	//除了undefine和没有默认值会生效，其他都不会；
+	let [a = 111,b,c = 666] = [null,333,undefined];
+	console.log(a,b,c)
+	//如果等号右边不是数组，将会报错
+	let [a] = {};
+</script>
+</html>

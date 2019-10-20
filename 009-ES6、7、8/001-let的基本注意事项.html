@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let的基本注意事项.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//var定义的变量可以再次定义，且定义在window上
+	var a = 1;
+	var a = 2;
+	console.log(a);
+	console.log(window.a);
+	//var定义的变量不可以再次定义，且不会定义在window上
+	let b = 1;
+	// let b = 2;
+	console.log(b);
+	console.log(window.b);
+	//var 定义的变量会发生声明的提升，还可以拿到；而let定义的变量不会发生变量声明的提升，直接拿不到
+	console.log(c);
+	// console.log(d);	
+	var c = 1;
+	let d = 2;	
+	//let定义的变量在let所在的代码块中(即{}内)有效，而var定义的变量在函数范围内有效；
+	if(true){
+		var e =5;
+		let f =8;
+	}
+	console.log(e);
+	// console.log(f);
+	function show(){
+		var j = 9;
+		let h = 10;
+		console.log(j);
+		console.log(h);
+		function fn(){
+			console.log(j);
+			console.log(h);
+		}
+		fn();
+	}
+	show();
+</script>
+</html>
