@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+	let arr = [11,54,96,78,23]
+	//函数调用时使用把数组抓换成参数列表
+	function total(n1,n2){
+		return n1+n2;
+	}
+	console.log(total(...arr))
+	//函数定义时使用把参数列表转化为数组
+	function add(...arr){
+		var result = 0;
+		for(let i=0;i<arr.length;i++){
+			result += arr[i];
+		}
+		return result;
+	}
+	console.log(add(11,58,45)) 
+	//求数组最大数
+	console.log(Math.max.apply(null,arr));//ES5
+	console.log(Math.max(...arr))//ES6
+</script>
+</html>

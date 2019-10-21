@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-模板字符.html</title>
+</head>
+<body>
+	<button>添加</button>
+	<div id="content"></div>
+</body>
+<script>
+	let arr = ['tom','leo','amy'];
+	let oBtn = document.getElementsByTagName('button')[0];
+	let oContent = document.getElementById('content');
+	oBtn.onclick = function(){
+		let html ="<ul>";
+		for(let i=0;i<arr.length;i++){
+			// html +="<li>"+arr[i]+"</li>"
+			//语法:`字符 ${javascript表达式}`
+			html +=`<li>${arr[i]}</li>`
+		}
+		html +="</ul>";
+		oContent.innerHTML=html;
+	}
+</script>
+</html>

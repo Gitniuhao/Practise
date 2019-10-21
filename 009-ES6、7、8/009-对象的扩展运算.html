@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-对象的扩展运算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {
+		name:"tom",
+		age:18,
+		firends:{name:"liming",age:15},
+		pets:["dog","cat"]
+	}
+	// 直接赋值,浅拷贝
+	// let obj1 = obj;
+	let obj1 = {...obj}//{...obj}就是把obj中所有能遍历到的对象生成一个新数组
+	obj1.name = "amy";
+	obj1.firends.name = "leo";
+	obj1.pets.push("duck");
+	console.log(obj)
+	console.log(obj1)
+</script>
+</html>

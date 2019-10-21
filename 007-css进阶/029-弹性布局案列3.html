@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-弹性布局案列3.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: flex;
+			height:100vh;
+			flex-direction: column;
+		}
+		header{
+			background-color: orange;
+		}
+		section{
+			flex-grow: 1;
+			display: flex;
+			width: 100vw;
+		}
+		nav{
+			background-color: skyblue;
+			flex: 0 0 10vw;
+		}
+		.main{
+			background-color: tomato;
+			/*flex:1 0 80vw;*/
+			flex-grow: 1;
+		}
+		aside{
+			background-color: green;
+			flex: 0 0 10vw;
+		}
+		footer{
+			background-color: #892;
+		}
+		header,footer{
+			flex:0 0 10vh;
+		}
+	</style>
+</head>
+<body>
+	<header>header</header>
+	<section>
+		<nav>nav</nav>
+		<div class="main">main</div>
+		<aside>aside</aside>
+	</section>
+	<footer>footer</footer>
+</body>
+</html>
