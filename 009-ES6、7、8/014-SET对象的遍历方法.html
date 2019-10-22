@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-SET对象的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,52,69,87,33]
+	let s = new Set(arr);
+	//实列.keys(),返回键名的遍历器，然后for..of..循环,获取到每一项
+	for(let key of s.keys()){
+		console.log("key:",key)
+	}
+	//实列.values(),返回键值的遍历器
+	for(let value of s.values()){
+		console.log("value:",value)
+	}
+	//实列.entries(),返回键名和键值的对
+	for(let entries of s.entries()){
+		console.log("entires",entries)
+	}
+	s.forEach(function(key,value){
+		console.log("key:",key,"value:",value)
+	})
+</script>
+</html>

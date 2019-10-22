@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-map对象的操作方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {};
+	let obj1 = {id:"xf001"};
+	let obj2 = {id:"xf002"};
+	obj["name"] = 'tom';
+	obj[obj1] = '25';
+	obj[obj2] = '30';
+	console.log(obj)
+	let m = new Map();//类似于对象,但键的范围不限于字符串,各种类型的值(包括对象)都可以当作键的数据结构
+	m.set("name","tom");
+	m.set(obj1,"amy");
+	m.set(obj2,"peter");//键值不会被覆盖
+	console.log("m.set",m);
+	console.log("m.get",m.get("name"));//返回得到的对应的键值
+	console.log("m.delete",m.delete("name"));
+	console.log("m.delete",m.delete("age"));
+	console.log("m.has",m.has(obj1));
+	console.log("m.has",m.has("name"));//返回布尔值
+	console.log("m.clear",m.clear());
+</script>
+</html>

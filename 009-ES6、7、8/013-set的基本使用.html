@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-set的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,52,69,87,33]
+	let s = new Set(arr);
+	console.log(s)
+	console.log('s.size:',s.size)//实列的长度
+	console.log("s.add：",s.add(110))//添加某个值，返回set本身
+	console.log("s.delete：",s.delete(52))//删除某个值，返回会布尔值，表示是否删除成功
+	console.log("s.delete：",s.delete(150))
+	console.log("s.has",s.has(69))//判断set是否有这个值，返回一个布尔值
+	console.log("s.has",s.has(150))
+	console.log("s.clear",s.clear())//清楚所有值，没有返回值	
+	console.log(s)
+</script>
+</html>

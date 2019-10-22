@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-map对象的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {};
+	let obj1 = {id:"xf001"};
+	let obj2 = {id:"xf002"};
+	obj["name"] = 'tom';
+	obj[obj1] = '25';
+	obj[obj2] = '30';
+	console.log(obj)
+	let m = new Map();//类似于对象,但键的范围不限于字符串,各种类型的值(包括对象)都可以当作键的数据结构
+	m.set("name","tom");
+	m.set(obj1,"amy");
+	m.set(obj2,"peter");
+	for(let key of m.keys()){
+		console.log("key:",key)
+	}
+	for(let value of m.values()){
+		console.log("value:",value)
+	}
+	for(let entries of m.entries()){
+		console.log("entries",entries)
+	}
+	m.forEach(function(key,value){
+		console.log(key,value)
+	})
+</script>
+</html>

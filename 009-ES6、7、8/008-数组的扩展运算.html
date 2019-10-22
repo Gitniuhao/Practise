@@ -5,7 +5,18 @@
 	<title>008-数组的扩展运算.html</title>
 </head>
 <body>
-	
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
 </body>
 <script>
 	
@@ -27,5 +38,41 @@
 	//求数组最大数
 	console.log(Math.max.apply(null,arr));//ES5
 	console.log(Math.max(...arr))//ES6
+
+	//浅拷贝数组,只是拷贝了地址，堆内存的数据相同，改变一个数组，另外一个数组的内容也会随之改变
+	let arr1 = arr;
+	arr1.push(65);
+	console.log(arr);
+	console.log(arr1);
+	//深拷贝数组，一般为新建一个数组，然后把原来数组的内容赋予新的数组
+	//1,最为直接的方法
+	let arr2 = [];
+	for(let i=0;i<arr.length;i++){
+		arr2.push(arr[i]);
+	}
+	arr2.push(99);
+	console.log(arr)
+	console.log(arr2)
+	//2、利用concat方法，进行数组的合并/ES5方法
+	let arr3 = arr.concat();
+	arr3.push(100);
+	console.log(arr);
+	console.log(arr3);
+	//3.运用slice方法基于当前数组新建一个新数组/ES5方法
+	let arr4 = arr.slice();
+	arr4.push(105)
+	console.log(arr)
+	console.log(arr4)
+	//4、ES6方法,运用扩展运算
+	let arr5 = [...arr];
+	arr5.push(110);
+	console.log(arr)
+	console.log(arr5)
+
+	//可以用数组的扩展运算来把伪数组转换为真数组
+	let aLi =document.getElementsByTagName('li');
+	console.log(aLi);
+	let arr6 = [...aLi]
+	console.log(arr6)
 </script>
 </html>

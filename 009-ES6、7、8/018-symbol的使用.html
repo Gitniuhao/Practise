@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-symbol的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// var s = new Symbol();//symblo不是一个构造函数
+	var s1 = Symbol("tom");
+	var s2 = Symbol("tom");
+	console.log(s1)
+	console.log(s2)
+	//Symbol是一种新的数据类型,表示独一无二的值
+	console.log(s1 === s2)//false
+	let obj = {};
+	obj["name"] = 'amy'
+	obj[s1] = "xf001"
+	obj[s2] = "xf002"
+	console.log(obj)
+	console.log(Reflect.ownKeys(obj))
+	let keys = Reflect.ownKeys(obj);
+	for(let i=0;i<keys.length;i++){
+		console.log(keys[i])
+	}
+</script>
+</html>
