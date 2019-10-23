@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-箭头函数的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(n1,n2){
+		console.log(n1,n2)
+	}
+	show(11,55)
+	*/
+	let show1 = (n1,n2) =>{
+		console.log(n1,n2)
+	}
+	show1(11,55)
+	/*
+	function show2(n1,n2){
+		return n1+n2;
+	}
+	show2(11,88)
+	*/
+	let show2 = (n1,n2) => n1+n2;
+	console.log(show2(1,99))
+	/*
+	function show3(n){
+		return n+15;
+	}
+	*/	
+	let show3 = n => n+15;
+	console.log(show3(10))
+</script>
+</html>

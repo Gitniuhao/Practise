@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-函数的参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// function show(name,age){
+	// 	console.log(name,age)
+	// }
+	// show()//undefined*2
+	// function show(name,age){
+	// 	var name = name || 'tom';
+	// 	var age = age || '18';
+	// 	console.log(name,age)
+	// }
+	// show('leo',25)
+
+	//直接在参数定义的时候赋值来为函数的参数设置默认值，且设置默认值的参数写在参数列表的尾部，在调用时传入前面没有默认值的参数就可以了
+	function show(age,name = 'tom'){
+		console.log(name,age)
+	}
+	show(18,'leo')//leo 18
+	show(20);//tom 20
+
+
+	//参数默认值不是传值的，而是每次都经过计算的默认值的表达式的值；
+	let i = 1;
+	function show2(x = ++i){
+		console.log(x);
+	}
+	show2();//2
+	i = 5;
+	show2();//6
+	
+	//结构解析和默认参数结合
+	function ajax(url,{method = 'GET',data = 'id=xf001'} = {}){
+		console.log(url,method,data)
+	}
+	ajax("http://www.mi.com",{method:'POST',data:'id=xf002'})//http://www.mi.com POST id=xf002
+	ajax("http://www.mi.com")//http://www.mi.com GET id=xf001
+
+
+	//rest参数就是在函数定义时使用扩展运算(...变量名)把参数列表转换为数组
+	function show3(...arr){
+		console.log(arr)
+	}
+	show3(11,23,86)
+</script>
+</html>

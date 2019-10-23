@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-ES5函数命名（较重要）.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 1,函数表达式,
+	// show()没有函数声明的提升，如在定义前调用，会报错:show is not a function
+	var show = function(){
+		console.log('tom')
+	}
+	show();
+	//函数声明，会有函数声明的提升，即可在定义函数前调用函数
+	function show(){
+		console.log('leo')
+	}
+	//js中如果出现同名函数，后面的将会覆盖前面的
+	function same(){
+		console.log('amy')
+	}
+	function same(){
+		console.log('peter')
+	}
+	fn();
+
+	//函数声明会使得通过函数声明的函数放到前面，当有相同函数名却是不同命名方式，函数表达式的都会覆盖掉函数声明的
+	var fn = function(){
+		console.log('lidong')
+	}
+	function fn(){
+		console.log('limei')
+	}
+	fn();
+</script>
+</html>

@@ -20,7 +20,7 @@
 	obj[s1] = "xf001"
 	obj[s2] = "xf002"
 	console.log(obj)
-	console.log(Reflect.ownKeys(obj))
+	console.log(Reflect.ownKeys(obj))//Symbol值作为对象属性时是不可枚举的，可以用Recflect.ownKeys()来获取对象上所有的key
 	let keys = Reflect.ownKeys(obj);
 	for(let i=0;i<keys.length;i++){
 		console.log(keys[i])

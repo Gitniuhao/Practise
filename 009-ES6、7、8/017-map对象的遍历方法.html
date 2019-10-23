@@ -11,7 +11,8 @@
 	let obj = {};
 	let obj1 = {id:"xf001"};
 	let obj2 = {id:"xf002"};
-	obj["name"] = 'tom';
+	obj['name'] = 'tom';
+	//当一个对象作为另一个对象的属性来使用时，会自动把对象的名称自动转换为字符串，且多个对象的字符串名称相同，如设置多个，后面的将覆盖前面的
 	obj[obj1] = '25';
 	obj[obj2] = '30';
 	console.log(obj)

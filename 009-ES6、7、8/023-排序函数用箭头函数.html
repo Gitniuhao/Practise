@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-排序函数用箭头函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [54,11,32,46,25,0];
+	// var arr2 = arr.sort(function(n1,n2){
+	// 	return n1-n2;
+	// })
+	//用箭头函数改造排序，更加简洁方便
+	var arr2 = arr.sort((n1,n2) => n1-n2)
+	console.log("arr:",arr)
+	console.log("arr2:",arr2)
+</script>
+</html>
