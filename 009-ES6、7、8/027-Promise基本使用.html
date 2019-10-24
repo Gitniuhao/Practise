@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-Promise基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//promise是一种异步编程解决方案，将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数，promise对象提供统一的接口，使得控制异步操作更加容易。
+	//在生成promise实例时必须传入一个回调函数作为参数，而回调函数中也必须传入两个参数，分别为resolve和reject
+	//在promise实例生成时，回调函数立即执行
+	const promise = new Promise((resolve,reject)=>{
+		console.log('promise loading....')	
+		setTimeout(function(){
+			//promise有三种状态：pending(进行中)，fulfilled(已成功)，rejected(已失败)
+			//只有异步操作的结果，才可以决定当前是哪种状态，即在异步任务中操作。resolve函数负责异步操作成功时调用，并将异步操作的结果作为参数传出去；而reject函数负责异步操作失败时调用，并将异步操作报出的错误作为参数传出去；再一个就是状态一旦改变，就不会再变；promise对象的状态改变，只有两种可能：pending => fulfilled; pending => rejected
+			// resolve('get data success..')
+			reject('get data fail...')
+		},100)		
+	})
+	console.log('before:',promise)
+	//promise实例有一个then方法，用来接收两个回调函数，一个时成功的回调函数，一个时失败的回调函数
+	promise
+	.then(data=>{//resolved状态的回调
+		console.log('after:',promise)
+		console.log(data)
+	},fail=>{//rejected状态的回调
+		console.log('after:',promise);
+		console.log(fail)
+	})//then方法返回的是一个新的promise实例
+
+</script>
+</html>

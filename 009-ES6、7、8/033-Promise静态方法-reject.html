@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-Promise静态方法-reject.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//返回一个新的Promise实例,该实例的状态为rejected,参数会原封不动地作为reject的理由
+	var p = Promise.reject("getData error");
+	console.log(p)
+	p.catch(error =>{
+		console.log(error)
+	})
+</script>
+</html>

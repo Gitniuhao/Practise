@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-promise的then方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const promise = new Promise((resolve,reject)=>{
+		console.log('promise loading....')	
+		setTimeout(function(){
+			resolve('get data success')
+			reject('get data fail...')
+		},100)		
+	})
+	//promise实例对象调用then方法后会返回一个新的promise实例对象，
+	//而新生成的实列对象接收的参数是上一个promise实列对象返回的数据
+	let p2
+	const p1 = promise
+	.then(data =>{
+		return 'data success'
+	})
+	p1
+	.then(data =>{
+		console.log(data)
+	})
+	p2 = new Promise((resolve,reject)=>{
+			console.log('promise loading....')	
+			setTimeout(function(){
+				resolve('get data successed')
+				reject('get data failed...')
+			},100)
+			return p2;		
+		})
+	p3 = p2
+	.then(data =>{
+		//当上一个Promise返回一个promise 对象时，它下面新生成的对像接收的数据是其成功状态下的数据
+		console.log(data)
+	})
+</script>
+</html>
