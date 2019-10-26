@@ -1,0 +1,34 @@
+;<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-generator的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(){
+		console.log('gen start....')
+		yield 'data1'
+		console.log('gen continue..')
+		yield 'data2'
+		console.log('gen end...')
+		return 'data3';
+		//如果没有return语句，则value的值就是undefined
+	}
+	//如果函数中没有返回值，打印函数调用则会返回undefined
+	// console.log(gen());
+	//generator函数会自动返回一个对象
+	//调用函数并不会执行函数，会返回一个generator的遍历器对象
+	//如果想要执行函数，需要调用遍历器对象上的next方法
+	console.log(gen())
+	const g = gen();
+	//调用返回对象的方法是.next();
+	console.log(g.next());//返回的对象调用next的方法会返回：{value: 'data1', done: false}
+	//而当返回的对象调用next方法，在函数内部遇到yield时，就会暂停执行下面的操作，且把yelid携带的数据传入next方法返回得value属性中：{value:'data1',done:false},这里done:false代表了函数还没有执行完
+	console.log(g.next());//继续往下执行，直到遇到下一个yelid,返回{value:'data2',done:false}
+	console.log(g.next());//返回：{value:'data3',done:true}
+	//next的作用就是：分阶段执行generator函数，而每次调用generator函数,都会返回一个对象，表示当前阶段的信息(vale属性和done属性)
+</script>
+</html>

@@ -19,8 +19,8 @@
 					success:data =>{
 						resolve(data)
 					},
-					error:error =>{
-						reject(error.status)
+					error:(jqXHR,statusMsg) =>{
+						reject(statusMsg)
 					}
 				})
 			})

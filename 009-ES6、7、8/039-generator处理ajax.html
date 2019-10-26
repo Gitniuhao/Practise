@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-generator处理ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//需要一个专门生成promise的方法
+	function getDataPromise(url){
+		return new Promise((resolve,reject) =>{
+			$(function(){
+				$.ajax({
+					url:url,
+					type:"GET",
+					success:data =>{
+						resolve(data)
+					},
+					error:(jqXHR,statusMsg) =>{
+						reject(statusMsg)
+					}
+				})
+			})
+		})
+	}
+
+	function * gen(url){
+		//只有上一步，才能继续下一步，这就是generator处理异步程序，让其看起来更像同步程序的表现
+		const data1 = yield getDataPromise(url);//此时data1 = data.followers_url
+
+		const data2 = yield getDataPromise(data1);//此时data2 = data[0].followers_url
+
+		const data3 = yield getDataPromise(data2);
+
+		console.log('get data over..')
+	}
+	const g = gen("https://api.github.com/users/Gitniuhao");
+	// console.log(g.next())
+	g.next().value
+	.then(data =>{
+		return g.next(data.followers_url).value
+		// console.log(data)
+	})
+	.then(data =>{
+		// console.log(data)
+		return g.next(data[0].followers_url).value
+	})
+	.then(data =>{
+		console.log(data)
+		g.next()
+	})
+</script>
+</html>

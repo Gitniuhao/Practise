@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-await的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	//遇到await会等待后面的语句执行完毕，然后再去执行下面的语句
+	async function fn(){
+		const data1 = await 'get data1';
+		console.log('data1:',data1);
+		const data2 = await 'get data2';
+		console.log('data2:',data2)
+		return data1;
+	}
+	const p =fn();
+	p.then(data =>{
+		console.log(data)
+	})
+	*/
+	//await只能放在async函数体中。。
+	//await表示后面的处理需要等待,通常await后面是一个 Promise 对象，返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。
+	const promise = new Promise((resolve,reject) =>{
+		setTimeout(() =>{
+			// resolve('get promise ok');
+			reject('get promise error')
+		},100)
+	})
+
+	async function fn(){
+		try{//防止出错的方法，是await语句放在try...catch代码块之中。
+			const data1 = await promise;
+			console.log('data1:',data1);
+			console.log('awalays do something...')
+		}catch(error){//await命令后面的 Promise 对象如果变为reject状态，程序中止,reject的参数会被catch方法的回调函数接收到。
+			console.log(error)
+		}
+		
+		return 'ok';
+	}
+	const p1 = fn();
+	p1.then(data =>{
+		console.log(data)
+	})
+</script>
+</html>

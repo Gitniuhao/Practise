@@ -1,0 +1,33 @@
+;<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-next方法的参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(x){
+		console.log('start gen x = ',x)
+		const y = yield (x + 10)
+		console.log('y=',y);//
+		const z = yield (y + 20);
+		console.log('z=',z);
+		return x+y+z;
+	}
+	const g = gen(5)
+	//next方法可以带一个参数，该参数就会被当做上一个 yield表达式 的返回值
+	//调用next方法返回的对象中value属性存的是yield关键字后面的语句的执行结果
+	//而next的参数会作为上一个yield表达式整个语句执行的返回值
+	/*
+	console.log(g.next());//{value: 15, done: false}
+	console.log(g.next());//{value: NAN, done: false},此时因为没有上一个next没有传参数，故y这个yield表达式没有返回值，且undefined加上20，就为NAN
+	console.log(g.next());//{value:NAN,done:true},且z为UNdefined
+	*/
+	//由于next方法的参数表示上一个yield表达式的返回值，所以在第一次使用next方法时，传递参数是无效的。
+	console.log(g.next())//{value: 15, done: false}
+	console.log(g.next(20));//{value: 40, done: false},y = 20
+	console.log(g.next(30));//{value: 55, done: false},z = 30
+</script>
+</html>
