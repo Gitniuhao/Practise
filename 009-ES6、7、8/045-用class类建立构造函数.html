@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045-用class类建立构造函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//用class定义的类也是函数
+	class Person{
+		// constructor方法是类的默认方法，在通过new命令生成对象实例时，自动调用该方法，一个类必须有constructor方法,如果没有显式定义,系统默认添加一个空的constructor方法，constructor方法默认返回实例对象
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		//在class中定义的方法实际上是给原型对象上添加方法，且方法之间不需要逗号隔开
+		sayName(){
+			console.log('i am '+this.name+'...')
+		}
+		sayAge(){//类不存在变量的提升
+			console.log('i am '+this.age+' years old')
+		}
+		static sayHello(){//静态方法前面添加static关键字，调用时用 类名.方法名 的形式调用
+			console.log('Hello')
+		}
+	}
+	const p1 = new Person('tom',20)
+	console.log(p1);
+	p1.sayName();
+	p1.sayAge();
+	Person.sayHello();
+
+	class Student extends Person{//通过extends关键字实现继承： class 子类 extends 父类
+		constructor(name,age,major){
+			super(name,age);//子类必须在constructor方法中调用super方法, 
+			this.major = major;
+		}
+		sayMajor(){
+			console.log('i come form '+this.major+'')
+		}
+	}
+	const s1 = new Student('peter',25,'Art')
+	console.log(s1);
+	s1.sayName();
+	s1.sayAge();
+	s1.sayMajor();
+	//父类的静态方法,可以被子类继承
+	Student.sayHello()
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-基于原型的构造函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log('i am '+this.name+'')
+	}
+	Person.prototype.sayAge = function(){
+		console.log('i am' +this.age+' years old')
+	}
+	//定义静态方法
+	Person.sayHello = function(){
+		console.log("hello")
+	}
+	const p1 = new Person('tom',15);
+	p1.sayName();
+	p1.sayAge();
+	Person.sayHello()
+
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype = Object.create(Person.prototype);
+	const s1 = new Student('amy',20,'computer');
+	console.log(s1)
+	s1.sayName();
+	s1.sayAge();
+</script>
+</html>

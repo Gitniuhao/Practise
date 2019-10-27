@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-字面量对象简洁语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const userName = 'tom';
+	const age = 20;
+	//字面量对象的简洁写法
+	const obj = {
+		userName,
+		age,
+		sayhai(){
+			console.log('hai')
+		},
+		sayHello(){
+			console.log('Hello')
+		}
+	}
+	console.log(obj);
+	obj.sayhai();
+	obj.sayHello();
+
+	const obj1 = {
+		userName,
+		age,
+		//这里的函数不能用箭头函数定义，因为箭头函数里的this是定义时属于谁就是谁，拿不到变量
+		sayhai:()=>{
+			console.log(this)
+			console.log(this.userName)
+		},
+		sayHello:()=>{
+			console.log(this.age)
+		}
+	}
+	console.log(obj1);
+	obj1.sayhai();
+	obj1.sayHello();
+</script>
+</html>

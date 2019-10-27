@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>048-关于数组的新增语法.html</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	const obj = {
+		"0":'tom',
+		"1":"peter",
+		length:2
+	}
+	const aLi = document.getElementsByTagName('li');
+	var arr = [...aLi];
+	console.log(aLi);
+	console.log(arr);
+
+	//将伪数组转换为真数组
+	console.log(Array.from(obj))
+	console.log(Array.from(aLi))
+
+	const arr1 = [11,22,55,66,88,99]
+
+	//作用:用于找出第一个符合条件的数组成员。
+	const f = arr1.find(function(n){
+		return n>50;
+	})
+	console.log(f)
+	console.log(arr1.find(n => n>80))
+	//用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。
+	console.log(arr1.findIndex(n => n>20))
+	//作用:返回一个布尔值，表示某个数组是否包含给定的值,第一个是搜索的值，第二个是搜索的开始
+	console.log(arr1.includes(55,0))
+</script>
+</html>

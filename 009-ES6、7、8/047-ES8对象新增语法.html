@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-ES8对象新增语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const { 
+		keys,
+		values,
+		entries,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	 } = Object;
+	const obj = {
+		name:'tom',
+		age:20,
+		sex:'male'
+	}
+	
+	Object.defineProperty(obj,'legs',{
+		value:2
+	})
+	
+	console.log(keys(obj));
+	console.log(values(obj))
+	console.log(entries(obj))
+	console.log(getOwnPropertyDescriptors(obj))
+
+	const DEFAULTS ={
+		js:false,
+		timer:500
+	}
+	const OPTIONS = {
+		js:true
+	}
+	console.log(assign({},DEFAULTS,OPTIONS))
+	console.log(assign([11,22,33,88],[44,55,66]))
+
+	console.log(1 == '1');
+	console.log(1 === '1');
+	console.log(is(1,'1'))//相当于 ===
+</script>
+</html>
