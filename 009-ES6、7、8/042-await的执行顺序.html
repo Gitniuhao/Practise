@@ -28,21 +28,31 @@
 	}
 
 	//1.指定用户；2.获取用户订单号；3，根据订单号获取信息
-
+	/*顺序较为明显直观
 	async function fn(userName){
 		const userNo = await getDataPromise('./data/'+userName+'.json');
-		// console.log(userNo)
+		console.log(userNo)
 		const uesrData = await getDataPromise('./data/'+userNo.orderNo+'.json');
-		console.log(uesrData)
+		return uesrData;
 	}
-	fn('a');
-
-	function getUser(){
-		const userA = getDataPromise('./data/a.json');
-		const userA = getDataPromise('./data/b.json');
-
-		cost userNoA = await userA;
-		cost userNoB = await userB;
+	fn('a')
+	.then(data =>{
+		console.log(data)
+	});
+	*/
+	async function getUser(){
+		const getA =await getDataPromise('./data/a.json');
+		const getB =await getDataPromise('./data/b.json');
+		//当获取数据时再用await处理，先前请求数据时同步请求，较为快捷
+		const userA = await getA;
+		const userB = await getB;
+		console.log(userA)
+		console.log(userB)
+		return [userA,userB]
 	}
+	getUser()
+	.then(data =>{
+		console.log(data)
+	})
 </script>
 </html>

@@ -26,6 +26,7 @@
 		})
 	}
 	async function fn(url){
+		//用await进行顺序操作，如同单线层操作
 		const data1 = await getDataPromise(url)
 		// console.log(data1)
 		const data2 = await getDataPromise(data1.followers_url)
