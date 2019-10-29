@@ -1,5 +1,4 @@
-exports.obj = {
+module.exports = {
 	name:'tom',
 	age:25
 }
-console.log(exports)
