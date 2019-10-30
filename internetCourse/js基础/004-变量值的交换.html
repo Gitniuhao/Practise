@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-变量值的交换.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	//变量值的交换的第一个思路：借助第三方变量进行交换
+	var num1 = 10;
+	var num2 = 20;
+	var temp = null;
+	//把num1的值取出来赋给temp
+	temp = num1;
+	//把num2的值取出来赋给num1
+	num1 = num2;
+	//再把temp的值取出来赋给Num2
+	num2  = temp;
+	console.log(num1,num2)
+	*/
+	/*
+	//第二种方式交换：一般适用于数字的交换
+	var num1 = 10;
+	var num2 = 20;
+	//把num1和num2变量中的值取出来重新相加，再赋给num1;
+	num1 = num1 + num2;//30
+	//把num1和num2的值取出来相减，再赋给num2
+	num2 = num1 - num2;//10
+	//把num1取出来和杠计算过的num2取出来相减，再赋给num1
+	num1 = num1 - num2;//20
+	console.log(num1,num2)
+	*/
+	//变量的名字不能重复，重复就会引起冲突，后面的覆盖前面的
+
+	//第三种：位运算
+	var num1 = 10;
+	var num2 = 20;
+	num1 = num1 ^ num2;
+	num2 = num1 ^ num2;
+	num1 = num1 ^ num2;
+	console.log(num1,num2)
+</script>
+</html>
