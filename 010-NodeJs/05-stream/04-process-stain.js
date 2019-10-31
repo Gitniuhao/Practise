@@ -1,0 +1,1 @@
+process.stdin(process.stdout.write())

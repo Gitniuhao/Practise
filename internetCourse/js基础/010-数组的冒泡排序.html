@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-数组的冒泡排序.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [11,2,55,30,50]
+	for(var i=0;i<arr.length;i++){
+			//比较一轮
+		for(var j =0;j<arr.length-1-i;j++){
+			if(arr[j] > arr[j+1]){
+				var temp = 0;
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+	console.log(arr)
+	
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-函数练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//求一个数组中的最大数
+	var arr = [10,20,50,60,80]
+	function getArrayMax(arr){
+		var max = arr[0];
+		for(var i =0;i<arr.length;i++){
+			if(max < arr[i]){
+				max = arr[i]
+			}
+		}
+		return max;
+	}
+	console.log(getArrayMax(arr))
+
+	//通过函数实现数组反转
+	function resverArry(arr){
+		for(var i=0;i<arr.length/2;i++){
+			var temp = 0;
+			temp = arr[i];
+			arr[i] = arr[arr.length-1-i];
+			arr[arr.length-1-i] = temp;
+		}
+		return arr;
+	}
+	console.log(resverArry(arr))
+</script>
+</html>
