@@ -15,7 +15,7 @@ const write = new CustomWritable();
 write.write('hello',()=>{
 	console.log('write hello...')
 })
-//只有调用'end'事件，'finish'事件才能被触发，即且缓冲数据都已传给底层系统之后触发。
+//只有调用end方法，'finish'事件才能被触发，即且缓冲数据都已传给底层系统之后触发。
 write.on('finish',()=>{
 	console.log('write finish...')
 })

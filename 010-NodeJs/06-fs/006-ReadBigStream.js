@@ -1,7 +1,10 @@
 const fs = require('fs');
 //1.打开可读流；
 
-const rs = fs.createReadStream('./04-ws.txt');
+const rs = fs.createReadStream('01.wmv');
+const ws = fs.createWriteStream('02.wmv');
+rs.pipe(ws);
+/*
 //2.读取可读流内容；
 rs.on('data',(chunk)=>{
 	console.log(chunk)
@@ -14,3 +17,4 @@ rs.on('end',()=>{
 rs.on('close',()=>{
 	console.log('close stream done...')
 })
+*/
