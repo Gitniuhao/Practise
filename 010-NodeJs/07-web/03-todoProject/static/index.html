@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>toDoList</title>
+	<title>ToDoList</title>
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -10,10 +10,10 @@
 		<h1>ToDoList</h1>
 		<input type="text" class="list-input">
 		<ul class="content">
-			<li class="content-item">吃饭</li>
-			<li class="content-item">睡觉</li>
-			<li class="content-item">打豆豆</li>
-		</ul>
+			{% for item in data %}
+			<li class="content-item">{{item.task}}</li>
+			{% endfor %}			
+		</ul> 
 	</div>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
