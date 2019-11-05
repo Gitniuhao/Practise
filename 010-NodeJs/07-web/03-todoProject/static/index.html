@@ -11,7 +11,7 @@
 		<input type="text" class="list-input">
 		<ul class="content">
 			{% for item in data %}
-			<li class="content-item">{{item.task}}</li>
+			<li class="content-item" data-id="{{item.id}}">{{item.task}}</li>
 			{% endfor %}			
 		</ul> 
 	</div>

@@ -6,7 +6,7 @@ const url = require('url');
 const swig = require('swig');
 const querystring = require('querystring');
 //引入处理数据的方法
-const { get,add } = require('./model/item.js')
+const { get,add,del } = require('./model/item.js')
 
 
 const server = http.createServer((req,res)=>{
@@ -51,6 +51,7 @@ const server = http.createServer((req,res)=>{
 			const query = querystring.parse(body);
 			add(query.task)
 			.then(data =>{
+				//3.将获取到的任务对象返回前端进行处理
 				res.end(JSON.stringify({
 					code:0,
 					massage:'添加数据成功',
@@ -67,7 +68,22 @@ const server = http.createServer((req,res)=>{
 		})
 		
 	}else if(pathname == '/delete'){//处理delete请求
-
+		//1.获取到每个li的对象的id参数
+		const id = parse.query.id;
+		//2.根据id进行对后台相应文件进行删除操作
+		del(id)
+		.then(data =>{
+			res.end(JSON.stringify({
+				code:0,
+				massage:'删除数据成功'
+			}))
+		})
+		.catch(err =>{
+			res.end(JSON.stringify({
+				code:1,
+				massage:'删除数据失败'
+			}))
+		})
 	}else{//处理静态资源(index.css/index.js/jquery)
 		//获取绝对路径，且用path.normalize方法进行规范化
 		const fileName = path.normalize(__dirname+'/static/'+filePath);

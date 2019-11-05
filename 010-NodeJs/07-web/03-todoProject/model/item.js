@@ -34,7 +34,23 @@ async function add(task){
 	//5.返回任务对象
 	return obj;
 }
+
+//异步处理删除文件
+async function del(id){
+	//1.读取文件获取数据
+	const data = await readFile(filepath,{flag:'r',encoding:'utf-8'})
+	//2.将字符串数据转换成数组
+	const arr = JSON.parse(data);
+	//3.根据id将数组中对应的对象数据删除\
+	const newArr = arr.filter(function(item){
+		// console.log(item)
+		return item.id != id;
+	})
+	//4.再将数组转换成字符串写入文件覆盖原来的内容
+	await writeFile(filepath,JSON.stringify(newArr));
+}
 module.exports = {
 	get,
-	add
+	add,
+	del
 }
