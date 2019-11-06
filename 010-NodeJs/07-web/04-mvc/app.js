@@ -29,7 +29,7 @@ const server = http.createServer((req,res)=>{
 	*/
 	if(pathname.startsWith('/static/')){//处理静态资源
 		//获取绝对路径，且用path.normalize方法进行规范化
-		const fileName = path.normalize(__dirname+'/static/'+filePath);
+		const fileName = path.normalize(__dirname+'/'+filePath);
 		//读取文件
 		fs.readFile(fileName,{encoding:'utf-8'},(err,data)=>{
 			if(err){
@@ -45,6 +45,8 @@ const server = http.createServer((req,res)=>{
 				res.end(data);
 			}
 		})
+	}else if(pathname == '/favicon.ico'){
+		res.end('ok')
 	}else{//处理具体的路由
 		//将获取的路由转换成一个数组，便于分别获取
 		const paths = pathname.split('/');
@@ -57,9 +59,14 @@ const server = http.createServer((req,res)=>{
 		*/
 		const mode = require(path.normalize(__dirname+'/Controller/'+controller));
 		//接收到controller实例后进行传参以及调用
-		mode[action] && mode[action](...[req,res].concat(args))
-
-		res.end('ok...')
+		try{
+			mode[action] && mode[action](...[req,res].concat(args));	
+		}catch(err){
+			res.setHeader('content-type','text/html;charset="utf-8"');
+			res.statusCode = 404;
+			res.end('<h1>你请求的地址出错了！</h1>');
+		}
+				
 	}
 
 

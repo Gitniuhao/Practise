@@ -4,7 +4,7 @@
 		//当按下enter键的时候，发送ajax请求，添加数据
 		if(ev.keyCode == 13){
 			$.ajax({//ajax的最大特点：可以局部渲染页面改变页面结构
-			url:'/add',	
+			url:'/Item/add',	
 			type:'post',
 			dataType:'json',
 			data:{
@@ -30,15 +30,13 @@
 	$('.content').on('click','.content-item',function(){
 		var $this = $(this);
 		$.ajax({
-			url:'/delete',
+			url:'/Item/delete/'+$this.data('id'),
 			type:'GET',
 			dataType:'json',
-			data:{
-				id:$this.data('id')
-			},
 			success:data =>{
 				if(data.code ==0){
 					$this.remove();
+					console.log('aa')
 				}else{
 					console.log(data.massage)
 				}
