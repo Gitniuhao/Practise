@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-创建元素的三种方式.html</title>
+</head>
+<body>
+	<button>生成</button>
+	<div></div>
+</body>
+<script>
+	//1.document.write()
+	document.write('bhzsdhZSDcvZSDH<C')
+	//2.innerHTML
+	var oBtn = document.getElementsByTagName('button')[0];
+	var oDiv = document.getElementsByTagName('div')[0];
+	oBtn.onclick = function(){
+		oDiv.innerHTML = '<p>jdnjsdn</p>';
+	}
+	//docuement.createElement()
+</script>
+</html>

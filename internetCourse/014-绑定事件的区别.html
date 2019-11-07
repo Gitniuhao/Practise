@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-绑定事件的区别.html</title>
+</head>
+<body>
+	<button>绑定</button>
+	<div></div>
+</body>
+<script>
+	/*
+	//addEvenetListener()/attachEVenet()
+	相同点：都可以为元素绑定事件；
+	不同点：1，方法名不一样；2，参数个数不一样
+	3，addEventListener():谷歌，火狐，IE11支持，IE8不支持
+	attatcEvent():谷歌，火狐，IE11不支持，IE8支持
+	4,addEventListener()中的this是谁绑定并执行事件的就是谁，而attachEvent()中的this就是window
+	5,addEventListener中时间名不带on,而attachEvent()带on
+	*/
+	var oBtn = document.getElementsByTagName('button')[0];
+	var oDiv = document.getElementsByTagName('div')[0];
+	oBtn.addEvenetListener('click',function({
+		console.log('ckbmk')
+	}),false)
+	oBtn.attachEvenet('onclick',function({
+		console.log('sfgnsjfgnjlsfgn')
+	}))
+</script>
+</html>
