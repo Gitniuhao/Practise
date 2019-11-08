@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>node.html</title>
+</head>
+<body>
+	<!--
+					数据库操作
+	查看数据库：show dbs,只有数据库中有数据才能被查看到；
+	查看当前数据库：db
+	创建数据库：use DATABASE_NAME(数据库的名字)，如数据库不存在，则创建数据库；如数据库存在，则切换到数据库；
+	删除数据库：db.dropDatabase():删除数据库前要切换到指定的数据库中
+					集合操作
+	显示当前数据库中的集合：show collections/show tables
+	删除	当前数据库中指定的集合：db.DATABASE_NAME(集合名字).drop()
+					文档操作
+		插入文档：db.集合名.insert(documnent);document可以是一个对象也可以是一个数组中带着多个对象，格式与JSON格式相同
+	insert操作时，如果没有此集合，将会新建一个集合
+	_id主键可以自己进行定义，而db.集合名.save()操作命令时指定_id是更新该_id
+
+		查看文档：db.集合的名字.find(query(条件)，projection(字段显示或隐藏))
+	直接db.集合名.find(),会返回当前集合的所有文档
+	query:可以用查询操作符：	
+	比较查询操作符：$lt,小于：db.集合名.find({age:{$lt：20}})查找当前集合年龄小于20的文档
+	$lte,小于等于；$gt,大于，$gte,大于等于；$in,包含，包含操作符后面要跟数组，一个区间
+	逻辑查询操作符：$and,与:db.集合名.find({$and:[{age:10},{name:"521"}]})，要同时符合两个条件
+	$or,或：db.集合名.find({$or:[{age:10},{name:"521"}]}),满足其中一个条件即可
+	$not,非：db.集合名.find({age:{$not:{$lt:10}}}),表示相反
+	db.集合名.find()会返回一个游标对象，游标对象的常用方法如下：
+	skip(num):跳过前面几个文档而去查询；
+	limit(num):限制几个文档个数去查询
+	toArray():将查询的结构转换成数组
+	length()/count():当前几个有多少条文档；
+	sort({filed:value})：排序，filed表示文档对象中的属性(name,age等)，value表示1或-1，1表示升序，-1表示降序
+	pretty():将查询结果更加美观的展示
+	projection:是指指定的字段显示或隐藏
+	{filed:value}:filed表示文档对象中的属性(name,age等),value可以是0或1，0表示隐藏，默认为1
+	db.集合名.findOne(query,projection),返回符合条件的第一条文档，会返回一个对象
+	
+		更新文档：db.集合名.update(query,update,options)
+	query:指得是更新的条件，即更新条件所在的文档；
+	update:值得是由更新操作符与更新后的值所组成的对象
+	更新操作符：$set:db.集合名.update({name:"bob"},{$set:{age:20}})，表示匹配该字段，有则修改，没有则新增
+	$unset:表示删除/$inc:表示在原有的字段值上增加
+	update一般默认更新符合条件的第一条文档，如果需要更新所有：1.在options的位置加一个对象：{multi:true};2.也可以用updateMany方法、
+		删除文档：db.集合名.remove(query,justOne)
+	query:删除的条件
+	justOne:如果设置为true,表明只删除第一条：db.集合名.remove(query,true),相当于db.集合名.delteOne()
+						集合关系
+		一对一关系：例如老公和老婆的关系，可以通过文档关联和内嵌文档的形式来实现
+	文档关联：在老婆的集合内的集合中设置一个h_id与老公集合文档的_id相同，再通过变量赋值：
+	let h_id = db.husband.findOne({name:'丈夫'})._id,变量赋值时要用findOne，
+	因为其返回的是一个对象，再然后再通过变量赋值的丈夫的id在wife里找到其对应的妻子：
+	db.wife.find({h_id:h_id}):表明在wife集合里寻找和变量h_id相同的文档，变量h_id在后面
+	内嵌文档：db.husbands({_id:"zs",name:"张三",wife:{_id:"zfr",name:"张夫人"}})
+	就是把妻子的文档当作一个对象内嵌在丈夫的文档内，查询时，直接查询丈夫所在集合内的wife对象即可，但此时需要用findOne查询，因为只有一个：db.husbands.findOne({name:"张三"}).wife
+		一对多关系：例如父亲和孩子的关系，可以通过文档关联和内嵌文档的形式来实现
+	文档关联：和一对一关系相同；
+	内嵌文档：需要注意的是，这里内嵌的不是一个对象，而是一个包含着多个对象的数组
+		多对多关系：例如老师和学生的关系，可以通过文档关联的形式实现
+	文档关联：1.可以老师和学生先各自有自己的id和名字常规的创建；
+	2.然后再新建一个集合专门存储对应的老师和对应的学生：
+	db.ts.insert({t_id:"kz",s_id:"zs"})/db.ts.insert({t_id:"kz",s_id:"ls"})/db.ts.insert({t_id:"lz",s_id:"ls"})
+	3.然后再通过变量赋值老师的id:let t_id = db.teacher.findOne({name:"孔子"})._id
+	4.其次再通过老师的id在新建的集合中找到对应的学生们的id:let s_ids = db.ts.find({t_id:t_id}).toArry().map(item => item.s_id),这里学生的id肯定不止一个，故需要把查询结果转换成数组，然后通过map遍历到每一个item，最后再返回item里的学生的id;
+	5.最后通过查询到的学生们的id在学生的集合中找到对应的学生：db.student.find({_id:{$in:s_ids}}),这里因为不止一个，所以查询时需要用到$in(包含查询符)。
+	 -->
+</body>
+</html>
