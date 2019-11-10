@@ -1,7 +1,7 @@
 //引入数据库
 const mongoose = require('mongoose');
 //链接数据库
-mongoose.connect('mongodb://localhost/kuazhu',{ useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/kuazhu',{ useUnifiedTopology: true,useNewUrlParser: true });
 
 
 let getRandom = (min,max)=>{
@@ -43,6 +43,7 @@ db.once('open',function(){
 			console.log(docs)
 		}
 	})*/
+	/*
 	userModle.find({age:{$lt:20}},null,{limit:2},(err,docs) =>{
 		if(err){
 			console.log(err)
@@ -58,8 +59,9 @@ db.once('open',function(){
 			console.log(docs)
 		}
 	})
+	*/
 	//findOne和find用法相同，就是findOne只找到一个
-	userModle.findOne({age:{$lt:20}},null,{limit:2},(err,docs) =>{
+	userModle.findOne({age:{$lt:30}},null,{limit:2},(err,docs) =>{
 		if(err){
 			console.log(err)
 		}else{

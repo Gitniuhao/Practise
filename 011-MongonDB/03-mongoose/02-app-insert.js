@@ -1,7 +1,7 @@
 //引入数据库
 const mongoose = require('mongoose');
 //链接数据库
-mongoose.connect('mongodb://localhost/kuazhu',{ useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/kuazhu',{ useUnifiedTopology: true, useNewUrlParser: true });
 
 
 let getRandom = (min,max)=>{
