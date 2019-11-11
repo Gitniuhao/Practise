@@ -33,7 +33,7 @@ db.once('open',function(){
 	//3.1新增
 	/*
 	const user = new userModle({name:"tom",age:18,major:"computer"})
-	user.save()//因为model实例对象的save的方法最后返回的是一个人promise实例对象，所以：
+	user.save()//因为model实例对象的save的方法最后返回的是一个promise实例对象，所以：
 	.then(data =>{
 		console.log(data)
 	})

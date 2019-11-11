@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 			minlength:[3,'最少不能低于三位'],
 			maxlength:[8,'最多不能高于8位']
 		},
-		age:{
+		age:{//在存储数据时，如果数据类型和定义字段的类不一样，mogoose内部会尝试将数据转换为定义的字段类型，如果转换失败则操作失败
 			type:Number,
 			requied:[true],
 			//Number类型有min(最小)和max(最大)值验证
@@ -26,9 +26,9 @@ const mongoose = require('mongoose');
 		isAdim:{
 			type:Boolean
 		},
-		createAt:{
+		createAt:{//定义类型的方法有两种，一种是直接用类型，另一种是用一个对象，类型是对象type属性的值
+				//用对象时还可以指定默认值default
 			type:Date,
-			// default:Date.now.toLocaleString()
 			default:Date.now()
 		},
 		firends:{
@@ -44,6 +44,23 @@ const mongoose = require('mongoose');
 			}
 		}
 	})
+	//自定义实例方法(stance methods):因为方法中要用到调用方法的实例(集合)，
+	//所以不能用箭头函数
+	userSchema.methods.findBlogs = function(callback){
+		// console.log(this)
+		// console.log(this.model('blog'))
+		//调用实例方法model方法可以直接引入模型(集合)，返回一个model,直接可以在集合寻找满足条件的文档
+		//Model.prototype.model()
+		this.model('blog').find({author:this._id},callback)
+	}
+
+	//自定义静态方法
+	userSchema.statics.findByPhone = function(val,callback){
+		// console.log(this)
+		//静态方法：Model.model(),也是返回一个model
+		this.findOne({phone:val},callback)
+	}
+
 	//2.根据文档模型生成对应模型(集合)，也是一个类
 	//第一个参数是需要生成的集合名称，第二个参数是需要用到的文档模型
 	const userModle = mongoose.model('user',userSchema)
