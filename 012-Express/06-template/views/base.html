@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>校园是我家，美化靠大家</h1>
+	<h2>helle ,I amm {{ name }}</h2>
+	<p>
+		{% if name == 'tom'%}
+		我的弟弟叫tom
+		{% else %}
+		我的弟弟叫李明
+		{% endif %}
+	</p>
+	<p>
+		{%if age == 18 %}
+		他今年18岁了
+		{% elseif age == 20 %}
+		他今年20岁了
+		{% else  %}
+		他今年25岁了
+		{% endif %}
+	</p>
+	<ul>
+		{% for key,val in firends %}
+		<li>他的朋友：{{ key }}---{{ val }}</li>
+		{% endfor %}
+	</ul> 
+</body>
+</html>

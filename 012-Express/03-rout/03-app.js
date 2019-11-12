@@ -13,13 +13,23 @@ app.use(express.static('public'))//而如果要让页面不优先请求首页，
 //路由请求方法
 //不是一个具体的http请求,代表所有的请求,“主要用来加载中间件”,有all请求的话，会先进行all请求
 //且一般要在all中调用next方法，让程序继续往下执行
-app.all('/',(req,res,next) =>{
-	console.log('always do something..');
-	next();
-})
-app.get('/',(req,res) => res.send('Get the data...'))
-app.put('/',(req,res) => res.send('Put the data...'))
-app.post('/',(req,res) => res.send('Post the data...'))
-app.delete('/',(req,res) => res.send('Delete the data...'))
 
+
+//get/delete方法处理参数适用：req.query/req.params
+
+// /?name:tom&age:20
+app.get('/',(req,res) => {
+	//通过req.query将参数转换成对象，便于处理，处理路由：'/'
+	console.log(req.query)
+	res.send('Get the data...')
+})
+
+// /users/123/books/456
+// /users/:userId/books/:bookId
+app.get('/users/:userId/books/:bookId',(req,res) =>{
+	//通过req.params将参数转换成对象，便于处理,处理路由：'/users/:userId/books/:bookId'
+	console.log(req.params)
+	res.send('get the data...')
+})
+ 
 app.listen(3000, ()=> console.log('Example app listening on port 3000!'))

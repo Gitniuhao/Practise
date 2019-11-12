@@ -6,15 +6,19 @@
 </head>
 <body>
 	<h1>Test require...</h1>
-	<button id="get">Get</button>
+	<button id="post">Post</button>
 </body>
 <script src="jquery-1.12.4.min.js"></script>
 <script>
-	//get
-	$('#get').on('click',function(){
+	//post
+	$('#post').on('click',function(){
 		$.ajax({
 			url:'/',
-			type:'get',
+			type:'post',
+			data:{
+				name:"peter",
+				age:22
+			},
 			success:function(data){
 				console.log(data)
 			}

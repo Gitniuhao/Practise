@@ -15,17 +15,27 @@ app.all('/',(req,res,next) =>{
 	console.log('always do something..');
 	next();
 })
-//res.end返回处理结果
+//res.end返回处理结果(字符串，也可以解析字符串中的HTML代码)
 // app.get('/',(req,res) => res.end('Get the data...'))
 // app.get('/',(req,res) => res.end('<h1>HTML CSS JS</h1>'))
+// app.get('/',(res,req) => res.end({name:"tom"}))//不可以返回字符串
 // app.get('/',(req,res) => res.end('{name:"tom"}'))
-/*
-//res.json返回json对象
-app.get('/',(req,res) => res.json({
-	"name":"tom",
-	"age":20
-}))*/
-//res.send返回各种数据类型
-app.get('/',(req,res) => res.send('<h1>HTML CSS JS</h1>'))
+
+//res.json能够返回对象，字符串，但是不能解析字符串中的HTML代码
+// app.get('/',(req,res) => 
+	// res.json({
+	// name:"tom",
+	// age:20
+	// })
+	// res.json('Get the data...')
+	// res.json('<h1>HTML CSS JS</h1>')
+	// )
+//res.send能返回各种数据类型
+// app.get('/',(req,res) => res.send('<h1>HTML CSS JS</h1>'))
+// app.get('/',(req,res) => res.send('getbchbsc'))
+app.get('/',(req,res) => res.send({
+	name:"age",
+	age:20
+}))
 
 app.listen(3000, ()=> console.log('Example app listening on port 3000!'))
