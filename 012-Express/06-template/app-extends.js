@@ -30,12 +30,10 @@ app.set('view engine','html')
 app.get('/',(req,res) =>{
 //第一个参数是相对于模板目录下的html文件,不过扩展名.html可以省略,第一参数:index=index.html
 //第二个参数是传递给模板的数据,即要在相应的html文件中要渲染的部分
-	res.render('index',{
-		title:"test",
-		name:'peter',
-		age:18,
-		firends:['amy','bob','peter','leo']
-	})
+	res.render('index')
+})
+app.get('/list',(req,res) =>{
+	res.render('list')
 })
 
 

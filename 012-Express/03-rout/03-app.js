@@ -11,9 +11,6 @@ app.use(express.static('public'))//而如果要让页面不优先请求首页，
 // app.use('/static',express.static('public'))
 
 //路由请求方法
-//不是一个具体的http请求,代表所有的请求,“主要用来加载中间件”,有all请求的话，会先进行all请求
-//且一般要在all中调用next方法，让程序继续往下执行
-
 
 //get/delete方法处理参数适用：req.query/req.params
 

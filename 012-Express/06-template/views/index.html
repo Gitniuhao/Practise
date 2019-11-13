@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>{{ title }}</title>
-</head>
-<body>
-	<nav>导航栏</nav>
-	<div>
-		内容区域
-	</div>
-	<footer>
-		底部区域
-	</footer>
-</body>
-</html>
+<!-- 定义子模板,子模版可以对父模板的block继承 -->
+{% extends './layout.html' %}
+{% block title %}
+首页页面
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="index.css">
+{% endblock %}
+
+{% block content %}
+首页内容区域
+{% endblock %}
+
+{% block js %}
+<script src="js/index.js"></script>
+{% endblock %}
+

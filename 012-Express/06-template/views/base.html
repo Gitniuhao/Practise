@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<!-- swig模板里的变量要用{{ }}包括起来，才可以被引用到 -->
 	<title>{{ title }}</title>
 </head>
 <body>
 	<h1>校园是我家，美化靠大家</h1>
 	<h2>helle ,I amm {{ name }}</h2>
 	<p>
+		<!-- 判断语句要用{% %}包括起来,且结束的时候要有结束语句{% endif %} -->
 		{% if name == 'tom'%}
 		我的弟弟叫tom
 		{% else %}
@@ -24,6 +26,7 @@
 		{% endif %}
 	</p>
 	<ul>
+		<!-- 循环语句要用{% for key,val in arr %} {% endfor %}包括起来 -->
 		{% for key,val in firends %}
 		<li>他的朋友：{{ key }}---{{ val }}</li>
 		{% endfor %}
