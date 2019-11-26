@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 		age:Number,
 		major:String
 	})
+	
 	//2.根据文档模型生成对应模型(集合)，也是一个类
 	//第一个参数是需要生成的集合名称，第二个参数是需要用到的文档模型
 	const userModle = mongoose.model('user',userSchema)

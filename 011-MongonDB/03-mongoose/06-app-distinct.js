@@ -29,7 +29,7 @@ db.once('open',function(){
 			console.log(docs)
 		}
 	})*/
-	//filed:所要去重的条件
+	//filed:所要去重的部分
 	//[conditions]:限制条件，可写可不写
 	//callback,回调函数
 	userModle.distinct('major',{age:{$lt:24}},(err,docs) =>{

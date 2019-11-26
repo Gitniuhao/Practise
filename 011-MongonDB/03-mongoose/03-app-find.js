@@ -60,7 +60,7 @@ db.once('open',function(){
 		}
 	})
 	*/
-	//findOne和find用法相同，就是findOne只找到一个
+	//findOne和find用法相同，就是findOne只找到一个，findOne返回的是promise实例
 	userModle.findOne({age:{$lt:30}},null,{limit:2},(err,docs) =>{
 		if(err){
 			console.log(err)

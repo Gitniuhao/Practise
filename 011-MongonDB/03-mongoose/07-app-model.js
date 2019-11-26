@@ -10,8 +10,10 @@ db.on('err',function(err){
 })
 db.once('open',function(){
 	console.log('connect success..');
-	//引入模型
+
+	//引入模型(集合)
 	const userModle = require('./model/user.js')
+
 	//根据模型(集合)进行数据库操作
 	userModle.find({age:{$lt:30}},(err,docs) =>	{
 		if(err){

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	;(function(win){
+		function Random(){
+
+		}
+		Random.prototype.getRandom = function(min,max){
+			return Math.floor(Math.random()*(max-min)+min)
+		}
+		win.Random = Random;
+	})(window);
+	var rd = new Random();
+	console.log(rd.getRandom(10,30))
+</script>
+</html>
