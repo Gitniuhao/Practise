@@ -1,4 +1,6 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')//固定写法
 module.exports = {
 	//配置环境
 	mode:"development",// "production" | "development" | "none"
@@ -18,8 +20,6 @@ module.exports = {
 	entry:{
 		//chunk名称：入口文件路径
 		index:'./src/index.js',
-		about:'./src/about.js',
-		contact:'./src/contact.js'
 	},
 	//如何输出结果的相关选项
 	output:{
@@ -27,10 +27,10 @@ module.exports = {
     	// 必须是绝对路径（使用 Node.js 的 path 模块
 		path:path.resolve(__dirname,"dist"),
 
-		// 输出的文件的文件名:，[chunk]
-		// filename:"[name]-bundle.js",[name]:chunk名称，
-		// filename:"[name]-[chunkhash]-bundle.js",[hash]:模块标识符，每次打包hash都不同
-		filename:"[name]-[hash]-bundle.js"//[chunkhash] chunk内容的hash,每一个chunkhash值都不同
+		// 输出的文件的文件名:[name]:chunk名称，[hash]:模块标识符，每次打包hash都不同
+		// filename:"[name]-bundle.js"
+		// filename:"[name]-[chunkhash]-bundle.js"
+		filename:"[name]-[hash]-bundle.js"
 	},
 	module:{//webpack自身只支持javascript,而loader能够让webpack处理那些非javascript文件
 		rules:[
@@ -55,28 +55,21 @@ module.exports = {
 				]
 			}
 		]
+	},
+	plugins:[
+	//自动生成html代码配置
+		new HtmlWebpackPlugin({
+			template:'./src/index.html',//模板文件
+			filename:'index.html',//输出的文件名
+			// inject:'head',//脚本卸载哪个标签里,默认是true,在body后引进
+			hash:true,//给生成的js/css文件添加一个唯一的hash
+			chunks:['index']//可以设置自动引进哪一个文件
+		}),
+		//自动清理无用文件
+		new CleanWebpackPlugin()
+	],
+	devServer:{
+		contentBase:'./dist',//内容的目录
+		port:'8080'//服务运行的端口,可以手动更改端口，但是修改后要重新打包
 	}
 }
-/*
-module:{
-	rules:[
-		{
-			test:/\.css$/,
-			use:[
-				'style-loader',
-				'css-loader'
-			]
-		},
-		{
-			test:/\.(png|jpg|gif)/i,
-			use:[
-				{
-					'url-loader',
-					options:{
-						limit:10
-					}
-				}
-			]
-		}
-	]
-}*/

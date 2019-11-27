@@ -28,6 +28,8 @@ module.exports = {
     	// 必须是绝对路径（使用 Node.js 的 path 模块
 		path:path.resolve(__dirname,"dist"),
 
+		//对于单个入口，出口可以是一个静态文件
+		//对于多个入口,也只指定一个输出配置,但需要用模板来描述出口文件的名称,常见的模板有
 		// 输出的文件的文件名:[name]:chunk名称，[hash]:模块标识符，每次打包hash都不同
 		// filename:"[name]-bundle.js"
 		// filename:"[name]-[chunkhash]-bundle.js"
@@ -58,7 +60,7 @@ module.exports = {
 		]
 	},
 	plugins:[
-	//自动生成html代码配置
+		//自动生成html代码配置
 		new HtmlWebpackPlugin({
 			template:'./src/view/index.html',//模板文件
 			filename:'index.html',//输出的文件名
@@ -69,8 +71,9 @@ module.exports = {
 		//自动清理无用文件
 		new CleanWebpackPlugin()
 	],
-	devServer:{
+	devServer:{//webpack-dev-server提供了一个简单的基于Node express的web服务器，能够实时重新加载页面
 		contentBase:'./dist',//内容的目录
 		port:'8080'//服务运行的端口,可以手动更改端口，但是修改后要重新打包
+		//在package.json里配置后，在终端可以用npm run start或npm start命令行启动
 	}
 }
