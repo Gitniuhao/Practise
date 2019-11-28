@@ -19,16 +19,46 @@
 	<div class="map"></div>
 </body>
 <script>
-	;(function(win){
+	;(function(window){
 		function Random(){};
 		Random.prototype.getRandom = function(min,max){
-			return Math.floor.(Math.random()*(max-min)+min)
+			return Math.floor(Math.random()*(max-min)+min)
 		}
-		win.Random = Random;
+		window.Random = Random;
 	})(window);
 
-	;(function(){
-		
-	})();
+	;(function(window){
+		var oMap = document.querySelector('.map');
+
+		function Food(height,width,color){
+			this.height = height || 20;//不传值时默认为20
+			this.width = width || 20;//不传值时默认为20
+			this.color = color || 'red'
+			this.x = 0
+			this.y = 0
+			this.elem = document.createElement('div')
+		}
+		//初始化食物
+		Food.prototype.init = function(oMap){
+			var oDiv = this.elem
+			oDiv.style.position = 'absolute';
+			oDiv.style.height = this.height +'px';
+			oDiv.style.width = this.width +'px';
+			oDiv.style.background = this.color;
+			oMap.appendChild(oDiv)
+			this.render(oMap)
+		}
+		Food.prototype.render =function(oMap){
+			var x = Random.getRandom(0,oMap.offsetWidth/this.width)*this.width;
+			var y = Random.getRandom(0,oMap.offsetHeight/this.height)*this.height;
+			this.x = x;
+			this.y = y;
+			var oDiv = this.elem;
+			oDiv.style.left = this.x+'px';
+			oDiv.style.top = this.y+'px';
+		}
+		var fd =new Food(20,20,'yellow');
+		fd.init(oMap)
+	})(window);
 </script>
 </html>
