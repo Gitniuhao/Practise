@@ -1,8 +1,9 @@
 //安装并引进react react-dom然后用ReactDom.render进行页面渲染
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
+import App from './App.js';
 
-ReactDom.render(
-	<h1>Hello Word</h1>,
+ReactDOM.render(
+	<App />,//引用组件
 	document.getElementById('root')
 )	
