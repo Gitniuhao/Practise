@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 class Item extends Component{
 	constructor(props){
 		super(props)
-	}
-	componentWillUnmount(){
-		console.log('Item componentWillUnmount..')
-	}
+	}	
 	render(){//子组件通过this.props.属性名来接收,子组件调用父组件传递的方法，子组件不能改变父组件中的数据
 		// console.log('Item render...')
 		return(

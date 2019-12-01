@@ -2,7 +2,10 @@
 //引入react和属于react的Compontent函数
 import React,{Component,Fragment} from 'react'
 import './App.css';
+// import 'antd/dist/antd.css';
 import Item from './Item.js'
+import { DatePicker,Input,Button,Row,Col,List } from 'antd';
+
 //用构造函数继承Compontent构造函数，然后渲染，最后返回html代码
 class App extends Component{//自定义组件名字首字母都要大写，而html组件则就是个一个html标签
 	constructor(props){//this.props存放组件的外部数据
@@ -16,43 +19,6 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 		this.handleChange=this.handleChange.bind(this),
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-	static getDerivedStateFromProps(props, state){
-		console.log('App getDerivedStateFromProps...',props,state)
-		//此函数返回的结果会和this.state合并并返回一个新的this.state
-		/*
-		return {
-			task:'nb!'
-		}*/
-		//如返回之后内容在this.state中不可更改，可以返回一个空对象
-		return null
-	}
-	componentDidMount(){
-		/*当组件挂载完毕后可以在这个组件中发送ajax请求，虽然在其他阶段也能发送ajax请求，
-		但其他阶段dom节点还没有加载完毕，可能会出现错误*/
-		console.log('App componentDidMount..')
-	}
-	shouldComponentUpdate(nextProps,nextState){//参数是接下要更新的数据
-		console.log('App shouldComponentUpdate...',nextProps,nextState)
-		//决定了是否要更新，返回一个布尔值，返回false就是不更新，下一步直接停止；true更新，继续下一步
-		//当数据内的task的内容是1的时候就不更新，其他的就继续向下执行
-		// if(nextState.task == 1){
-		// 	return false
-		// }else{
-		// 	return true
-		// }
-		return true
-	}
-	getSnapshotBeforeUpdate(prevProps,prevState){//存放的是未更新前的数据，且返回的值在componentDidUpdate中可以用到，且必须搭配componentDidUpdate使用
-		console.log('App getSnapshotBeforeUpdate..',prevProps,prevState)
-		return '111'
-	}
-	componentDidUpdate(prevState,prevProps,snapshot){//组件更新完毕后使用
-		console.log('App componentDidUpdate..',snapshot)
-	}
-	componentWillUnmount(){
-		//当组件从DOm中卸载时执行
-		console.log('App componentWillUnmount..')
-	}
 	handleAdd(){
 		// console.log('btn click..')
 		// console.log(this)
@@ -61,13 +27,13 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 			list:list,
 			task:''//赋给list之后将task置空，为下一个task做准备
 		}),()=>{//如果需要获取最新的Dom,需要写在setState方法的第二个回调函数中
-			console.log(this.ul.childNodes)
+			// console.log(this.ul.childNodes)
 		})
 		// console.log(this.ul.childNodes)因为setState是异步程序，现在拿不到最新数据
 	}
 	handleChange(ev){
 		// console.log(ev.target.value)
-		const val = this.input.value
+		const val = ev.target.value
 		this.setState({//将输入框的内容赋给task
 			task:val
 		})
@@ -91,24 +57,31 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 		})
 	}
 	render(){//render负责渲染页面
-		console.log('App render...')
-		/*
-		return <div>
-			<input /><button>提交</button>
-		</div>*/
-		// return <Fragment><input /><button>提交</button></Fragment>
 		return(
  			<div className = 'App'>
- 				{
- 					//<input style={{width:300}}/><button>提交</button>，行内样式要用两个{}包括起来
- 				}
- 				<input ref={(input)=>{this.input = input}} onChange={this.handleChange} value={this.state.task}/>
- 				<button className= 'btn' onClick={this.handleAdd}>提交</button>
- 				<ul className = 'list' ref={(ul)=>{this.ul = ul}}>
-	 				{
-						this.getItems()
-					}
-				</ul>
+ 				<Row>
+ 					<Col span={18}>
+	 					<Input  
+	 					onChange={this.handleChange} 
+	 					value={this.state.task}/>
+	 				</Col>
+	 				<Col span={6}>
+		 				<Button type="primary"  
+		 				className= 'btn' onClick={this.handleAdd}>
+		 					提交
+		 				</Button>	
+	 				</Col>
+ 				</Row>
+ 				<List
+ 				 style={{marginTop:10}}
+			      bordered
+			      dataSource={this.state.list}
+			      renderItem={(item,index) => (
+			        <List.Item  onClick={this.handleDelete.bind(this,index)}>
+			          	 {item}
+				    </List.Item>
+				   )}
+    			/>
  			</div>
 		)
 	}
