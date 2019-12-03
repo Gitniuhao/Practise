@@ -1,8 +1,10 @@
+//将页面部分抽离出来，做到逻辑与结构相分离
 import React,{Component} from 'react'
 import './App.css';
 import { Input,Button,Row,Col,List } from 'antd';
 
-//UI组件
+
+//UI组件，只负责页面的渲染，由定义一个类的形式
 // class AppUI extends Component{
 // 	render(){//render负责渲染页面
 // 		return(
@@ -35,7 +37,7 @@ import { Input,Button,Row,Col,List } from 'antd';
 // 	}
 // }
 
-//无状态组件
+//无状态组件，把UI组件用函数表示出来(可以省去生命周期函数，优化代码)
 const AppUI = (props)=>{
 	const { handleChange,task,handleAdd,list,handleDelete } = props
 		return(

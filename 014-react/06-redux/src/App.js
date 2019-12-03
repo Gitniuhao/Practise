@@ -5,11 +5,14 @@ import store from './store/index.js'
 import {
 	 getChangeItemAction,
 	 getAddItemAction,
-	 getDelItemAction
+	 getDelItemAction,
+	 // getLoadInitDataAction,
+	 getRequestInitDataAction
 } from'./store/actionCreator.js'
 import AppUI from './AppUI.js'
+import axios from 'axios'
 
-//容器组件
+//容器组件，只负责业务逻辑和数据的处理
 //用构造函数继承Compontent构造函数，然后渲染，最后返回html代码
 class App extends Component{//自定义组件名字首字母都要大写，而html组件则就是个一个html标签
 	constructor(props){//this.props存放组件的外部数据
@@ -31,6 +34,19 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 			this.setState(store.getState())
 		})
 	}
+	componentDidMount(){
+		// axios.get('http://127.0.0.1:3000')
+		// .then(result=>{
+		// 	// console.log(result.data)
+		// 	//派发action
+		// 	store.dispatch(getLoadInitDataAction(result.data))
+		// })
+		// .catch(err =>{
+		// 	console.log(err)
+		// })
+		store.dispatch(getRequestInitDataAction())
+
+	}
 	handleAdd(){
 		// console.log('btn click..')
 		// console.log(this)
@@ -47,6 +63,7 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 		// const action = {
 		// 	type:ADD_ITEM,
 		// }
+		//将action分离出去比较容易维护
 		//action = getAddItemAction()
 		store.dispatch(getAddItemAction())
 	}
@@ -62,6 +79,7 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 		// 	// type:CHANG_ITEM,
 		// 	// payload:val
 		// }
+
 		// action = getChangeItemAction(val) 
 		store.dispatch(getChangeItemAction(val))
 	}
@@ -77,6 +95,7 @@ class App extends Component{//自定义组件名字首字母都要大写，而ht
 		// 	type:DEL_ITEM,
 		// 	payload:index
 		// }
+
 		//action = getDelItemAction(index)
 		store.dispatch(getDelItemAction(index))
 	}
