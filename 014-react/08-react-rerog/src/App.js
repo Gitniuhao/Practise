@@ -3,7 +3,7 @@
 import React,{Component,Fragment} from 'react'
 import TodoList from './pages/todolist/index.js'
 
-//容器组件，只负责业务逻辑和数据的处理
+//子组件的集合组件
 class App extends Component{
 	render(){
 		return(

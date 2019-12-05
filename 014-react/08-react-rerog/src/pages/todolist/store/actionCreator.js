@@ -1,25 +1,20 @@
 //在此页面定义并导出各个action(对象)，便于维护与处理
-import {
-	CHANG_ITEM,
-	ADD_ITEM,
-	DEL_ITEM,
-	DATA_LOAD
-} from './actionTypes.js'
+import * as types from './actionTypes.js'
 import axios from 'axios'
 
 export  const getChangeItemAction = (val)=>({
-			type:CHANG_ITEM,
+			type:types.CHANG_ITEM,
 			payload:val	
 })
 export  const getAddItemAction = ()=>({
-			type:ADD_ITEM,
+			type:types.ADD_ITEM,
 })
 export  const getDelItemAction = (index)=>({
-			type:DEL_ITEM,
+			type:types.DEL_ITEM,
 			payload:index
 })
 export  const getLoadInitDataAction = (payload)=>({
-			type:DATA_LOAD,
+			type:types.DATA_LOAD,
 			payload
 })
 export const getRequestInitDataAction = ()=>{
