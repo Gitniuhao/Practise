@@ -1,8 +1,9 @@
 //此页面利用reducer进行数据的处理，使得数据处理更加高效
-
+//immutable的特点：1、一旦创建，就不能被更改，任何修改或添加删除都会返回一个新的immutable对象
+//2、对象书中一个节点发生变化，只修改这个节点和受它影响的节点，其他节点进行共享
 import * as types from './actionTypes.js'
 import { fromJS } from 'immutable'
-const defaultState = fromJS({//初始化默认数据
+const defaultState = fromJS({//初始化默认数据，用fromJS方法将数据转换为immutable对象
 	list:['吃饭','睡觉','打豆豆'],
 	task:''
 })
@@ -17,6 +18,7 @@ export default (state = defaultState,action)=>{
 		// const newState = JSON.parse(JSON.stringify(state)
 		// newState.task = action.payload;
 		// return newState;
+		//map对象要用set方法设置
 		 return state.set('task',action.payload)
 	}
 	if(action.type == types.ADD_ITEM){//处理添加时数据变化
@@ -27,7 +29,7 @@ export default (state = defaultState,action)=>{
 		// return newState
 		const list = [...state.get('list')];
 		list.push(state.get('task'))
-		return state.merge({
+		return state.merge({//设置多个属性不能用set方法，要用merge方法
 			list:list,
 			task:''
 		})

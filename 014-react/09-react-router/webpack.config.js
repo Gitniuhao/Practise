@@ -31,7 +31,8 @@ module.exports = {
 		// 输出的文件的文件名:[name]:chunk名称，[hash]:模块标识符，每次打包hash都不同
 		// filename:"[name]-bundle.js"
 		// filename:"[name]-[chunkhash]-bundle.js"
-		filename:"[name]-[hash]-bundle.js"
+		filename:"[name]-[hash]-bundle.js",
+		publicPath:'/' //让所有的静态资源都在根目录下
 	},
 	module:{//webpack自身只支持javascript,而loader能够让webpack处理那些非javascript文件
 		rules:[
@@ -89,6 +90,7 @@ module.exports = {
 	],
 	devServer:{
 		contentBase:'./dist',//内容的目录
-		port:'8080'//服务运行的端口,可以手动更改端口，但是修改后要重新打包
+		port:'8080',//服务运行的端口,可以手动更改端口，但是修改后要重新打包
+		historyApiFallback:true//让h5路由刷新页面时不会向后台发送数据
 	}
 }

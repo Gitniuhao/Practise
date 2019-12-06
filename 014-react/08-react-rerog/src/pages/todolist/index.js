@@ -46,7 +46,7 @@ class TodoList extends Component{//自定义组件名字首字母都要大写，
 //将store里的数据映射到props里
 const mapStateToProps = (state) =>{	
 	console.log(state)
-	return{
+	return{//因为现在todolist和list与task都是map对象，所以要用get方法获取
 		list:state.get('todolist').get('list'),
 		task:state.get('todolist').get('task')
 	}
