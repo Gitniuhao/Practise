@@ -45,7 +45,21 @@ class Admin extends Component{
 }
 //子组件的集合组件
 class App extends Component{
-	render(){
+	constructor(props){
+		super(props)
+		this.state = {
+			isAdmin:true
+		}
+	}
+	render(){//自定义路由
+		const protectRouter =(component:Component,...rest)=>{
+			return <Router
+				{...rest} 
+				render={(props)=>{
+					return this.state.isAdmin ? <Component {...props}/> : <h1>this is the login page</h1>	
+				}}
+			/>
+		}
 		return(
 			<Router>
 				<div className ='App'>
