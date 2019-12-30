@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09-v-bind-绑定.html</title>
+</head>
+<body>
+	<div id="app">
+		<a href="http://www.baidu.com">百度</a>
+			<!-- 动态地绑定一个或多个特性，或一个组件 prop 到表达式 -->
+		<a v-bind:href="baiduUrl">百度</a>
+				<!--v-bind的缩写就是：  -->
+		<a :href="baiduUrl">百度</a>		
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			baiduUrl:"http://www.baidu.com"
+		}
+	})
+</script>
+</html>

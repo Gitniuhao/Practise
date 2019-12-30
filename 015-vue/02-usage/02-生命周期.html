@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02-生命周期.html</title>
+</head>
+<body>
+	<div id="app" >
+		<p ref="p1">{{message}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	 // vm:ViewModel的缩写
+	var vm = new Vue({
+		el:'#app',
+		data:{//当一个vue实例被创建时，它将data对象种的所有属性加入到vue的响应式系统
+			message:'bilibili...'
+		},
+		beforeCreate(){
+			console.log('beforeCreate:')
+			console.log('this.$el:',this.$el)//undefined
+			console.log('this.$data:',this.$data)//undefined
+			console.log('this.$refs:',this.$refs)//{}
+		},
+		created(){
+			console.log('created:')
+			console.log('this.$el:',this.$el)//undefined
+			console.log('this.$data:',this.$data)//{__ob__: Observer}
+			console.log('this.$refs:',this.$refs)//{}
+		},
+		beforeMount(){
+			console.log('beforeMount:')
+			console.log('this.$el:',this.$el)//<div id="app" ><p ref="p1">{{message}}</p></div>
+			console.log('this.$data:',this.$data)//{__ob__: Observer}
+			console.log('this.$refs:',this.$refs)//{p1: p}
+		},
+		mounted(){
+			console.log('mounted:')
+			console.log('this.$el:',this.$el)
+			console.log('this.$data:',this.$data)
+			console.log('this.$refs:',this.$refs)
+		},
+		beforeUpdate(){
+			console.log("beforeUpdate")
+		},
+		updated(){
+			console.log('updated:')
+		},
+		beforeDestroy(){
+			console.log('beforeDestroy:')
+		},
+		destroyed(){
+			console.log('destoryed:')
+		}
+	})
+	
+</script>
+</html>

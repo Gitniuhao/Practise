@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04-v-if-条件渲染.html</title>
+</head>
+<body>
+	<div id="app">
+		<input v-model="score" type="text">	
+		<p>{{score}}</p>			
+		<p v-if="score >= 60">及格</p>			
+		<p v-else>不及格</p>			
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{//当一个vue实例被创建时，它将data对象种的所有属性加入到vue的响应式系统
+			score:0,
+		}
+	})
+</script>
+</html>

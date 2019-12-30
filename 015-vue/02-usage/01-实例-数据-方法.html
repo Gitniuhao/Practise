@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-实例-数据-方法.html</title>
+</head>
+<body>
+	<div id="app" >
+		<p ref="p1">{{message}}</p>
+		{{confirm}}
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	 // vm:ViewModel的缩写
+	var vm = new Vue({
+		el:'#app',
+		data:{//当一个vue实例被创建时，它将data对象种的所有属性加入到vue的响应式系统
+			message:'bilibili...',
+			confirm:'dddddd'
+		}
+	})
+	console.log(vm)
+	console.log(vm.$data)//实例对象data属性
+	console.log(vm.$data.message)
+	console.log(vm.$data.confirm)
+	console.log(vm.$el)//Vue 实例使用的根 DOM 元素。
+	console.log(vm.$refs)//一个对象，持有注册过 ref 特性 的所有 DOM 元素和组件实例。
+	vm.$watch('message',function(){//观察 Vue 实例变化的一个表达式或计算属性函数,可以监听事件
+		console.log('message has changed')
+	})
+	vm.$destroy()//完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
+</script>
+</html>

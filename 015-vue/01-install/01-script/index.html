@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+</body>
+<!-- 引进vue -->
+<script src="./js/vue.js"></script>
+<script>
+	console.log(Vue)//一个构造函数
+	var vm = new Vue({//生成一个实例对象
+		el:'#app',//指定挂载的dom节点
+		data:{
+			message:'hello,vue~'
+		}
+	});
+</script>
+</html>
