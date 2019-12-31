@@ -10,7 +10,7 @@
 		<!-- 在表单控件或者组件上创建双向绑定,更新时也会更新原来的组件等 -->
 		<!-- 取代input监听change事件，在失去焦点之后监听到事件 -->
 		<input v-model.lazy="message" type="text">
-		<!-- 输入字符串转为有效的数字 -->
+		<!-- 在开头是数字的情况下输入字符串转为有效的数字，如果不是数字将不进行显示 -->
 		<input v-model.number="message" type="text">
 		<!-- 输入首位空格过滤 -->
 		<input v-model.trim="message" type="text">
@@ -21,7 +21,7 @@
 	var vm = new Vue({
 		el:'#app',
 		data:{//当一个vue实例被创建时，它将data对象种的所有属性加入到vue的响应式系统
-			message:'    bilibili...    ',
+			message:'bilibili...',
 		}
 	})
 </script>

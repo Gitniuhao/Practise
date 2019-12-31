@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16-v-on-修饰符-prevent.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<a href="https://www.baidu.com" @click.prevent='goBaidu'>百度</a>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		methods:{
+			goBaidu:function(){
+				console.log('goBaidu..')
+			}
+		}		
+	})
+</script>
+</html>

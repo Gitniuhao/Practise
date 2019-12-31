@@ -9,6 +9,8 @@
 		<input v-model="score" type="text">	
 		<p>{{score}}</p>			
 		<p v-if="score >= 60">及格</p>			
+		<p v-if="score < 60">不及格</p>	
+				<!--根据表达式的值的真假条件渲染元素，哪一个符合条件渲染那一个  -->
 	</div>
 </body>
 <script src="js/vue.js"></script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22-侦听器.html</title>
+</head>
+<body>
+	<div id="app">
+		<input v-model='fullName'type="text">
+		<p>firstName::{{firstName}}</p>
+		<p>lastName::{{lastName}}</p>
+		<p>fullName::{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'牛',
+			lastName:'皓'
+		},
+		computed:{//计算属性：将里面的方法转化为属性，方法都要有返回值
+			fullName:{
+				get:function(){
+					return this.firstName + ' ' + this.lastName
+				},
+				set:function(newValue){
+					// console.log(newValue)
+					let names = newValue.split(' ')//将新的值拆分成数组，再给每一个值赋值
+					this.firstName = names[0];
+					this.lastName = names[names.length - 1]
+				}
+			}
+		},
+		watch:{//侦听器，可以侦听多个事件/属性等
+			fullName:function(){
+				console.log('fullName has been changed..')
+			}
+		}		
+	})
+	vm.$watch('fullName',function(){//实例方法
+		console.log('fullName has been changed too....')
+	})
+</script>
+</html>

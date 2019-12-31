@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20-计算属性的基本使用.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>firstName::{{firstName}}</p>
+		<p>lastName::{{lastName}}</p>
+		<p>fullName::{{getFullName()}}</p>
+		<p>fullName::{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'牛',
+			lastName:'皓'
+		},
+		methods:{
+			getFullName:function(){
+				return this.firstName + ' ' + this.lastName
+			}
+		},
+		computed:{//计算属性：将里面的方法转化为属性，方法都要有返回值
+			fullName:function(){
+				return this.firstName + ' ' + this.lastName
+			}
+		}		
+	})
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-v-bind-class绑定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background-color: orange;
+		}
+		.err{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p class="active err">sfgsdfsdfg</p>
+			<!--绑定属性,对象或数组的形式  -->
+		<p :class="{active:true,err:false}">sfgsdfsdfg</p>		
+		<p :class="{active:isActive,err:isErr}">sfgsdfsdfg</p>	
+		<p :class="['active','err']">sfgsdfsdfg</p>	
+		<p :class="[isActive ? 'active' : 'err']">sfgsdfsdfg</p>	
+		<p :class="objClass">sfgsdfsdfg</p>	
+		<p :class="arrClass">sfgsdfsdfg</p>	
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:true,
+			isErr:true,
+			objClass:{
+				active:true,
+				err:true
+			},
+			arrClass:[
+				{active:true},
+				{err:true}
+			]
+		}		
+	})
+</script>
+</html>
