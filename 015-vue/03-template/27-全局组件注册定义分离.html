@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>27-全局组件注册定义分离.html</title>
+</head>
+<body>
+	<div id="app">
+		<!-- 当点击按钮时，每个组件都会各自独立维护它的 count。因为你每用一次组件，就会有一个它的新实例被创建。 -->
+		<button-conter></button-conter>
+		<button-conter></button-conter>
+		<button-conter></button-conter>
+	</div>
+	<div id="app2">
+		<button-conter></button-conter>
+		<button-conter></button-conter>
+		<button-conter></button-conter>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//定义一个组件
+	var ButtonCounter = Vue.extend({//extend,里面接收一个对象
+		data(){
+			return{
+				count:0
+			}
+		},
+		// 模板
+		template:'<button v-on:click="count++">你点击了我{{ count }} 次</button>'
+	})
+	//注册一个全局组件
+	Vue.component('button-conter',ButtonCounter)
+	// 全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+	var vm = new Vue({
+		el:'#app',
+	})
+	// 可以在任何新创建的 Vue 根实例 (new Vue) 的模板中使用
+	var vm2 = new Vue({
+		el:'#app2',
+	})
+</script>
+</html>

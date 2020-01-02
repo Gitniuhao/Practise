@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>30-定义多个组件.html</title>
+</head>
+<body>
+	<div id="app">
+		<to-do-item></to-do-item>		
+	</div>
+	<template id="toDoItem">
+		<div>
+			<task></task>
+			<dateline></dateline>
+		</div>		
+	</template>
+	<template id="task">
+		<div>{{tag}}：吃饭</div>
+	</template>
+	<template id="dateLine">
+		<div>{{tag}}：今天晚上</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var Task = Vue.extend({
+		data(){
+			return{
+				tag:'任务'
+			}
+		},
+		template:'#task'
+	})
+	var DateLine = Vue.extend({
+		data(){
+			return{
+				tag:'截至时间'	
+			}
+		},
+		template:'#dateLine'
+	})
+	//定义一个组件
+	var ToDoItem = Vue.extend({//extend,里面接收一个对象
+		data(){
+			return{
+				
+			}
+		},
+		template:'#toDoItem',
+		components:{//注册组件
+			task:Task,
+			dateline:DateLine
+		}
+	})
+	//注册一个全局组件
+	Vue.component('to-do-item',ToDoItem)
+	// 全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+	var vm = new Vue({
+		el:'#app',
+		data:{
+		
+		}
+	})
+</script>
+</html>

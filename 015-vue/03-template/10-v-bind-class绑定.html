@@ -22,7 +22,8 @@
 			<!--绑定属性,对象或数组的形式  -->
 		<p :class="{active:true,err:false}">sfgsdfsdfg</p>		
 		<p :class="{active:isActive,err:isErr}">sfgsdfsdfg</p>	
-		<p :class="['active','err']">sfgsdfsdfg</p>	
+		<p :class="['active','err']">sfgsdfsdfg</p>
+		<!-- 如果想根据条件切换列表中的 class，可以用三元表达式： -->
 		<p :class="[isActive ? 'active' : 'err']">sfgsdfsdfg</p>	
 		<p :class="objClass">sfgsdfsdfg</p>	
 		<p :class="arrClass">sfgsdfsdfg</p>	

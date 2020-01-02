@@ -22,10 +22,10 @@
 		},
 		computed:{//计算属性：将里面的方法转化为属性，方法都要有返回值
 			fullName:{
-				get:function(){
+				get:function(){//获取值
 					return this.firstName + ' ' + this.lastName
 				},
-				set:function(newValue){
+				set:function(newValue){//获取到最新的值并设置
 					// console.log(newValue)
 					let names = newValue.split(' ')//将新的值拆分成数组，再给每一个值赋值
 					this.firstName = names[0];

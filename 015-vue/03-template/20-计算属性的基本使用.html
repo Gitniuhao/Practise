@@ -21,11 +21,11 @@
 			lastName:'皓'
 		},
 		methods:{
-			getFullName:function(){
+			getFullName:function(){//方法
 				return this.firstName + ' ' + this.lastName
 			}
 		},
-		computed:{//计算属性：将里面的方法转化为属性，方法都要有返回值
+		computed:{//计算属性：将里面的方法转化为属性，且方法都要有返回值
 			fullName:function(){
 				return this.firstName + ' ' + this.lastName
 			}

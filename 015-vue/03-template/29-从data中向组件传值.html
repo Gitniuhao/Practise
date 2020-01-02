@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>29-从data中向组件传值.html</title>
+</head>
+<body>
+	<div id="app">
+		<to-do-item 
+			v-for="(item,index) in items"
+			:task="item.task"
+			:key="index"	
+			:index="item.id"					
+		></to-do-item>		
+	</div>
+	<template id="toDoItem">
+		<div>{{index}}--{{task}}</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//定义一个组件
+	var ToDoItem = Vue.extend({//extend,里面接收一个对象
+		data(){
+			return{
+				
+			}
+		},
+		template:'#toDoItem',
+		props:{
+			task:String,
+			index:Number
+		}
+	})
+	//注册一个全局组件
+	Vue.component('to-do-item',ToDoItem)
+	// 全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			items:[
+				{
+					id:0,
+					task:'吃饭'
+				},
+				{
+					id:1,
+					task:'睡觉'
+				},
+				{
+					id:2,
+					task:'打豆豆'
+				}
+			]
+		}
+	})
+</script>
+</html>

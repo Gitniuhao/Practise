@@ -34,7 +34,7 @@
 <body>
 	<div id="large-box" @click.capture="clickLargeBox">
 		<div class="big-box" @click="clickBigBox">
-			<!-- 修饰符capture,在捕获阶段执行，捕获-执行-冒泡，故会先执行 -->
+			<!-- 修饰符capture,在捕获阶段执行，事件阶段：捕获-执行-冒泡，先经过捕获阶段，故会先执行 -->
 			<div class="small-box" @click="clickSamllBox"></div>
 		</div>
 	</div>
