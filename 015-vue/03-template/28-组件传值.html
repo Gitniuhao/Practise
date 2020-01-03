@@ -6,10 +6,12 @@
 </head>
 <body>
 	<div id="app">
+		<!-- 通过属性静态传值 -->
 		<to-do-item task="睡觉"></to-do-item>	
 		<to-do-item task="吃饭"></to-do-item>	
 	</div>
 	<template id="toDoItem">
+		<!-- 在模板中调用属性 -->
 		<div>{{task}}</div>
 	</template>
 </body>
@@ -23,7 +25,8 @@
 			}
 		},
 		template:'#toDoItem',
-		props:{
+		// props:['task'],以字符串数组形式列出 prop
+		props:{//由props定义、接收属性的值，以对象的形式列出props,对象中的名称和值分别是props各自的名称和类型
 			task:String
 		}
 	})

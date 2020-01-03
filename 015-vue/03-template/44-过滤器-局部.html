@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>44-过滤器-局部.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>价格：{{price | priceFomat}}</p>
+	</div>
+	<div id="app2">
+		<p>价格：{{price | priceFomat}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.filter('priceFomat',function(price){
+		return '$'+price.toFixed(1)
+	})
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			price:10
+		},
+		filters:{//在全局和局部同时存在的情况下，有局部过滤器的用局部，没有局部的用全局
+			priceFomat:function(price){
+				return '$'+price.toFixed(2)
+			}
+		}
+	})
+	var vm2 = new Vue({
+		el:'#app2',
+		data:{
+			price:30
+		}
+	})
+</script>
+</html>

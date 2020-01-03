@@ -7,9 +7,9 @@
 <body>
 	<div id="app">
 		<!-- 当点击按钮时，每个组件都会各自独立维护它的 count。因为你每用一次组件，就会有一个它的新实例被创建。 -->
-		<button-conter @totalCount="addTotal()"></button-conter>
-		<button-conter></button-conter>
-		<button-conter></button-conter>
+		<button-conter @total-count="addTotal()"></button-conter>
+		<button-conter @total-count="addTotal()"></button-conter>
+		<button-conter @total-count="addTotal()"></button-conter>
 		<p>总共被点击了{{total}}次</p>
 	</div>
 	<template id="button-conter">
@@ -29,11 +29,12 @@
 		methods:{
 			addCount:function(){
 				this.count++
+				//在addCount触发的同时触发自定义事件
+				this.$emit('total-count')
 			},
 		},
 		// 模板
-		template:'#button-conter',
-		this.$emit('totalCount')
+		template:'#button-conter',		
 	})
 	// 全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
 	var vm = new Vue({

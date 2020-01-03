@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>38-单元素-过度.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 80px;
+			height: 40px;
+			margin-left: 20px;
+		}
+		.fade-enter-active, .fade-leave-active {
+		  transition: opacity .5s;
+		}
+		.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		  opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="isShow = !isShow">切换</button>
+		<transition name="fade">
+			<!-- 当isShow是真的时候渲染内容 -->
+			<div v-if='isShow'>hai,妹妹~</div>
+		</transition>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	})
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isShow:false
+		},
+	})
+</script>
+</html>
