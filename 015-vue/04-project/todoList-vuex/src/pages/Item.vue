@@ -15,13 +15,18 @@
 </template>
 <!-- 逻辑 -->
 <script>
+  import {DEL_TODO} from '../store/types.js'
   export default{
     name:'Item',
     data(){
-	return{
-     	bgc:'#fff',
-     	isShow:false
-	  }
+    	return{
+         	bgc:'#fff',
+         	isShow:false
+    	  }
+    },
+    props:{//接收来自父组件的数据
+      todo:Object,
+      index:Number
     },
     methods:{
      handleShow(flag){
@@ -30,15 +35,10 @@
      },
      handleDel(){
       if(window.confirm('您确定要删除'+this.todo.task+'吗?')){
-        this.delTodo(this.index)
+        this.$store.dispatch(DEL_TODO,this.index)
       }
      }
     },
-    props:{//接收来自顶层组件的数据以及方法进行数据的处理
-      todo:Object,
-      index:Number,
-      delTodo:Function
-    }
   }
 </script>
 <!-- 样式 -->

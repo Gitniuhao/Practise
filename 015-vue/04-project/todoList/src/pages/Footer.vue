@@ -1,32 +1,49 @@
 <!-- 模板 -->
 <template>
 	<div id="Footer">
-		<input type="checkbox">
+		 <input type="checkbox" v-model="allDone">
 		<span>{{totalDone}}/{{total}}</span>
-		<button>删除所有</button>
+		<button @click='handleDelAllDone'>删除选中</button>
 	</div>    
 </template>
 <!-- 逻辑 -->
 <script>
   export default{
     name:'Footer',
-    props:{
-    todos:Array
+    props:{//接收来自父组件的数据
+    	todos:Array,
+    	selectAllTodo:Function,
+    	delAllDone:Function
     },
-    computed:{
-	total:function(){
-		return this.todos.length
-	},
-	totalDone:function(){
-		return this.todos.reduce((total,item)=>{
-        if(item.done){
-            total = total + 1
+    computed:{//通过计算属性来计算得出总数和选中的总数
+		total(){//数组的长度就是任务的总数
+			return this.todos.length
+		},
+		totalDone(){//reduce,遍历并且计算数组的个数，其内第一个是个回调函数(回调函数内第一个接收的数组内的个数，第二个是数组内的每一项)，第二个接收的是从数组内第几个内容开始遍历计算
+			return this.todos.reduce((total,item)=>{
+	        if(item.done){//当数组内的每一项里面的done是true，则total+1
+	            total = total + 1
+	        }
+	        	return total
+		    },0)
+		},
+		allDone:{
+            get(){
+                return (this.total == this.totalDone) && (this.total != 0)
+            },
+            set(value){//这里的value是allDone的最新值，通过方法传递给父组件
+                this.selectAllTodo(value)
+            }
         }
-        return total
-	},0)
-	}
-	}
-    }
+     },
+     methods:{
+     	handleDelAllDone:function(){
+     		if(window.confirm('您确定要删除所选中的任务？')){
+     			this.delAllDone()
+     		}
+     	}
+     }
+ }
 </script>
 <!-- 样式 -->
 <style scoped>
@@ -34,7 +51,6 @@
 	#Footer{
         width: 100%;
         line-height: 40px;
-        border: 1px dashed #ccc;
         margin-top: 10px;
     }
     input{

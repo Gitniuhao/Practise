@@ -3,11 +3,10 @@
 	<div id="List">
 		<!-- 通过属性的绑定进行数据以及方法的传递 -->
 		<Item 
-			v-for="(todo,index) in todos"
+			v-for="(todo,index) in this.$store.state.todos"
 			:key="index"
 			:todo="todo"
 			:index="index"
-			:delTodo="delTodo"
 		/>
 	</div>    
 </template>
@@ -18,10 +17,6 @@
     name:'List',
     components:{
       Item
-    },
-    props:{//接收来自父组件的的数据以及方法，进行数据和方法的传递
-    	todos:Array,
-    	delTodo:Function
     }
   }
 </script>

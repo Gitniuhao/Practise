@@ -11,15 +11,13 @@
 </template>
 <!-- 逻辑 -->
 <script>
+	import {ADD_TODO} from '../store/types.js'
   export default{
     name:'Header',
     data(){
 		return{
 			task:''
 		}
-    },
-    props:{//接收来自父组件的方法，通过父组件的方法改变父组件的数据
-    	addTodo:Function,
     },
     methods:{
 		handleAdd:function(){
@@ -34,8 +32,8 @@
 				task,
 				done:false
 			}
-			//将任务对象传递到父组件中
-			this.addTodo(todo)
+			//派发action,传递数据,dispatch参数第一个是类型，第二个是数据
+			this.$store.dispatch(ADD_TODO,todo)
 			//清空输入框
 			this.task=''
 		}
