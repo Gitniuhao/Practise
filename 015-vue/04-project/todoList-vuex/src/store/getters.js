@@ -11,7 +11,7 @@ export default{//里面的计算属性的参数都是state
         	return total
 	    },0)
 	},
-	allDone(state,getter){
+	allDone(state,getter){//getter可以到所有计算机属性
 		return getter.total == getter.totalDone && getter.total != 0
 	}
 }

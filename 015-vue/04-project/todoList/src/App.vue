@@ -48,7 +48,7 @@
           item.done = value
         })
       },
-      delAllDone:function(){//通过筛选返回一个新的数组
+      delAllDone:function(){//通过筛选返回一个新的数组，数组里的每一项都和之前不同，换言之也就是和之前相同的都不存在了
         this.todos = this.todos.filter(item=>!item.done)
       }
     }

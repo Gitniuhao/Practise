@@ -35,6 +35,7 @@
      },
      handleDel(){
       if(window.confirm('您确定要删除'+this.todo.task+'吗?')){
+        //派发action,并传递删除所需要的index参数
         this.$store.dispatch(DEL_TODO,this.index)
       }
      }
